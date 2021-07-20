@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.repository.DonationRepository;
-
 import java.util.Optional;
 
 @Service

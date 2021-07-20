@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akazoo.CharityApp.service.DonationService;
+import pl.akazoo.CharityApp.service.InstitutionService;
 
 @Controller
 @RequestMapping("/")
@@ -13,11 +14,13 @@ import pl.akazoo.CharityApp.service.DonationService;
 public class HomeController {
 
     private final DonationService donationService;
+    private final InstitutionService institutionService;
 
     @GetMapping
     public String homeAction(Model model) {
         model.addAttribute("donations", donationService.count());
         model.addAttribute("bags", donationService.bagsCount());
+        model.addAttribute("institutions", institutionService.getAll());
         return "index";
     }
 }

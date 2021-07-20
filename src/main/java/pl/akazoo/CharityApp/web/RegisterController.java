@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/donate")
-public class DonationController {
+@RequestMapping("/register")
+public class RegisterController {
 
     @GetMapping
-    public String donateForm(){
-        return "form";
+    public String registerForm(){
+        return "register";
     }
 }

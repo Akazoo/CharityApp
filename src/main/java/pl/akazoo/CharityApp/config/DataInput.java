@@ -12,7 +12,6 @@ import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.InstitutionService;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -35,12 +34,18 @@ public class DataInput {
         if (!alreadyRun.getAndSet(true)) {
 
             Category category = new Category(null,"śmieci");
-            Institution institution = new Institution(null,"nic","nic2");
+            Institution institution = new Institution(null,"\"Dbam o Zdrowie\"","Pomoc dzieciom z ubogich rodzin.");
+            Institution institution1 = new Institution(null,"\"A kogo\"","Pomoc wybudzaniu dzieci ze śpiączki.");
+            Institution institution2 = new Institution(null,"\"Dla dzieci\"","Pomoc osobom znajdującym się w trudnej sytuacji życiowej.");
+            Institution institution3 = new Institution(null,"\"Bez domu\"","Pomoc dla osób nie posiadających miejsca zamieszkania.");
 
             Donation donation = new Donation(null,5, List.of(category),institution,"asd","asd","121", LocalDate.now(), LocalTime.now(),"niewiem");
 
             categoryService.add(category);
             institutionService.add(institution);
+            institutionService.add(institution1);
+            institutionService.add(institution2);
+            institutionService.add(institution3);
             donationService.add(donation);
         }
     }

@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.repository.InstitutionRepository;
+import java.util.List;
 
 @Service
 @Transactional
@@ -20,5 +20,9 @@ public class InstitutionService {
         log.debug("Obiekt do zapisu: " + institution);
         institutionRepository.save(institution);
         log.debug("Zapisano: " + institution);
+    }
+
+    public List<Institution> getAll(){
+        return institutionRepository.findAll();
     }
 }
