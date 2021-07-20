@@ -1,5 +1,24 @@
 # CharityApp
 
+About:
+
+The application is built using Spring freamwork (Boot, Data JPA, Form, Security, Web) and Maven. 
+It has elements from Java and Javascript. 
+JSP views and CSS are responsible for the visual design. 
+The application uses a MySQL database - 8 Dialect.
+
+"Dobre Ręce" is a portal which aim is to create a place where everyone will be able to donate unnecessary things to trusted institutions. Thanks to this, the donor can be sure, the donated goods will reach the people in need.
+
+Features:
+
+- Currently:
+
+1. 
+
+- In the nearest future:
+
+1.
+
 Polish transcription :
 
 O aplikacji:
@@ -15,7 +34,9 @@ Dzięki temu darczyńca zdobędzie pewność, iż przekazane dobra trafią do po
 Funkcjonalności:
 
 - Aktulane:
+
 1. 
 
 - Planowane:
+
 1. 
