@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.repository.CategoryRepository;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -19,5 +21,9 @@ public class CategoryService {
         log.debug("Obiekt do zapisu: " + category);
         categoryRepository.save(category);
         log.debug("Zapisano: " + category);
+    }
+
+    public List<Category> getAll(){
+        return categoryRepository.findAll();
     }
 }
