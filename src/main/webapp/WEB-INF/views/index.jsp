@@ -2,7 +2,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="/WEB-INF/pageParts/headerMain.jsp" %>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <%@include file="/WEB-INF/pageParts/head.jsp"%>
+</head>
+<body>
+<header class="header--main-page">
+    <%@include file="/WEB-INF/pageParts/header.jsp"%>
+
+    <div class="slogan container container--90">
+        <div class="slogan--item">
+            <h1>
+                Zacznij pomagać!<br/>
+                Oddaj niechciane rzeczy w zaufane ręce
+            </h1>
+        </div>
+    </div>
+</header>
+
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
@@ -19,7 +37,6 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
         </div>
-
     </div>
 </section>
 
@@ -66,26 +83,34 @@
 <section class="help" id="help">
     <h2>Komu pomagamy?</h2>
 
-    <!-- SLIDE 1 -->
     <div class="help--slides active" data-id="1">
         <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy.
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
             <c:forEach var="inst" items="${institutions}" varStatus="count">
-                <c:if test="${count.first}">
+                <c:if test="${count.index %2==0}">
                     <li>
                 </c:if>
-                    <div class="col">
-                        <div class="title">Fundacja ${inst.name}</div>
-                        <div class="subtitle">Cel i misja: ${inst.description}</div>
-                    </div>
-                    <c:if test="${count.index %2!=0}">
+                <div class="col">
+                    <div class="title">Fundacja ${inst.name}</div>
+                    <div class="subtitle">Cel i misja: ${inst.description}</div>
+                </div>
+                <c:if test="${count.index %2!=0}">
                     </li>
-                        <li>
-                    </c:if>
+                </c:if>
             </c:forEach>
+            <c:if test="${institutions.size() %2!=0 }">
+                <div class="col" style="visibility: hidden">
+                </div>
+                </li>
+            </c:if>
         </ul>
     </div>
 </section>
-<%@ include file="/WEB-INF/pageParts/footer.jsp" %>
+<footer>
+    <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
+</footer>
+    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+</body>
+</html>

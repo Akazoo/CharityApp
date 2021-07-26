@@ -1,10 +1,9 @@
 package pl.akazoo.CharityApp.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
@@ -12,16 +11,29 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
     private String password;
     @Column
     private String accountConfirmed;
+    @Column(nullable = false)
+    private String role;
+    @Column
+    private LocalDate creationDate;
+    @Column(nullable = false)
+    private String firstName;
+    @Column(nullable = false)
+    private String lastName;
 
+    @PrePersist
+    public void setCreationDate(){
+        this.creationDate = LocalDate.now();
+    }
 }

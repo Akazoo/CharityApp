@@ -2,13 +2,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="/WEB-INF/pageParts/headerForm.jsp" %>
-
-      <div class="slogan container container--90">
-          <h2>
-            Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie
-            informacje o odbiorze.
-          </h2>
-      </div>
-    </header>
-<%@ include file="/WEB-INF/pageParts/footer.jsp" %>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <%@include file="/WEB-INF/pageParts/head.jsp"%>
+</head>
+<body>
+<header>
+    <%@include file="/WEB-INF/pageParts/header.jsp"%>
+    <div class="slogan container container--90">
+        <h2>
+            Dziękujemy za przesłanie formularza.<br/>
+            Na maila prześlemy wszelkie
+            informacje odnośnie odbioru.
+        </h2>
+    </div>
+</header>
+<footer>
+    <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
+</footer>
+    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+</body>
+</html>

@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Donation {
 
     @Id
@@ -33,7 +34,11 @@ public class Donation {
     @Column(nullable = false)
     private LocalDate pickUpDate;
     @Column(nullable = false)
-    private LocalTime localTime;
-    @Column(nullable = false)
+    private LocalTime pickUpTime;
+    @Column
     private String pickUpComment;
+    @Column(nullable = false)
+    private String phoneNumber;
+    @ManyToOne
+    private User user;
 }

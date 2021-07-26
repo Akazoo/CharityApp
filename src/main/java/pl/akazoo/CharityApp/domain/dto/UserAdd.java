@@ -14,4 +14,8 @@ public class UserAdd {
     private String password;
     @NotBlank(message = "To pole nie może być puste.")
     private String password2;
+    @NotBlank(message = "To pole nie może być puste.")
+    private String firstName;
+    @NotBlank(message = "To pole nie może być puste.")
+    private String lastName;
 }
