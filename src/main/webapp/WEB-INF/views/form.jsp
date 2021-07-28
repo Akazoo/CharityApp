@@ -9,7 +9,7 @@
     <%@include file="/WEB-INF/pageParts/head.jsp"%>
 </head>
 <body>
-<header>
+<header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
 
 <div class="slogan container container--90">

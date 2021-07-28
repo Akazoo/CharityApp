@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.Category;
@@ -31,6 +32,7 @@ public class DataInput {
     private final InstitutionService institutionService;
     private final CategoryService categoryService;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @EventListener
     @Transactional

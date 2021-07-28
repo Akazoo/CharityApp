@@ -12,9 +12,8 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
     <div class="slogan container container--90">
         <h2>
-            Dziękujemy za przesłanie formularza.<br/>
-            Na maila prześlemy wszelkie
-            informacje odnośnie odbioru.
+            Dziękujemy za kontakt z Nami.<br/>
+            Spróbujemy odpowiedzieć tak szybko jak będzie to możliwe.
         </h2>
     </div>
 </header>

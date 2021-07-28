@@ -35,7 +35,7 @@ public class RegisterController {
             return "register";
         }
         if (userService.exists(userAdd.getEmail())) {
-            bindingResult.rejectValue("login", null,"Podany adres email  jest już w użyciu.");
+            bindingResult.rejectValue("email", null,"Podany adres email jest już w użyciu.");
             return "register";
         }
         if (!userAdd.getPassword().equals(userAdd.getPassword2())) {

@@ -20,7 +20,7 @@ public class DonationService {
         return donationRepository.count();
     }
 
-    public Long bagsCount(){
+    public Long getBagsCount(){
        Optional<Long> bags = donationRepository.countBags();
         return bags.orElse(0L);
     }

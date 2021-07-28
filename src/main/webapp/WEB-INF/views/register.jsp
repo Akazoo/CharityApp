@@ -28,11 +28,11 @@
           <form:errors path="password2" element="p"/>
         </div>
         <div class="form-group">
-          <form:input path="firstName" placeholder="Podaj swoje imię" />
+          <form:input path="firstName" placeholder="Imię" />
           <form:errors path="firstName" element="p"/>
         </div>
         <div class="form-group">
-          <form:input path="lastName" placeholder="Podaj swoje nazwisko" />
+          <form:input path="lastName" placeholder="Nazwisko" />
           <form:errors path="lastName" element="p"/>
         </div>
 

@@ -168,8 +168,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 const bags = document.querySelector("#number");
                 const bagsResult = document.querySelector("#numberResult");
                 const radiosResult = document.querySelector("#institutionResult");
-                const checkboxes = [...document.querySelectorAll(".cat")];
-                const radios = document.querySelectorAll(".spa");
+                const checkboxes = [...document.querySelectorAll(".cat:checked")];
+                const radios = document.querySelectorAll(".spa:checked");
                 const addressResult = document.querySelector("#addressResult");
                 const timeResult = document.querySelector("#timeResult");
                 const address = [...document.querySelectorAll("#address input")];
@@ -178,16 +178,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 let inputs = "";
                 checkboxes.forEach((input, idx) => {
-                    if (input.checked) {
                         inputs += "- " + input.parentElement.lastElementChild.textContent + ",<br/>";
-                    }
                 });
                 bagsResult.innerHTML = bags.value + " worek/worków : <br/>" + inputs;
 
                 radios.forEach((radio, idx) => {
-                    if (radio.checked) {
                         radiosResult.innerHTML = "Dla fundacji " + radio.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
-                    }
                 });
                 addressResult.innerHTML = `
                 <h4>Adres odbioru:</h4>
@@ -218,9 +214,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const today = new Date().toISOString().split('T')[0];
     document.getElementById("txtDate").setAttribute('min', today);
-
-    const p = document.querySelectorAll("form p");
-    p.forEach(span =>
-        span.style.color = 'red'
-    )
 })

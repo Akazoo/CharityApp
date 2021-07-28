@@ -39,4 +39,11 @@ Funkcjonalności:
 
 - Planowane:
 
-1. 
+1. Własne konto z listą donacji(m.in potwierdzanie już zakończonych) oraz ustawieniami,
+2. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami,
+3. Formularz dodania donacji dostępny po zalogowaniu,
+4. Walidacja hasła.
+5. Formularz kontaktowy.
+6. Obsługa zapomnianych haseł,
+7. Mail z linkiem aktywacyjnym do potwierdzenia konta,
+8. Dodatkowy plik tlumaczeniowy dla języka angielskiego.

@@ -46,7 +46,7 @@
                 <li><a href="/#steps" class="btn btn--without-border">O co chodzi?</a></li>
                 <li><a href="/#about-us" class="btn btn--without-border">O nas</a></li>
                 <li><a href="/#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
-                <sec:authorize access="!hasRole('ADMIN')">
+                <sec:authorize access="hasRole('USER')">
                 <li><a href="/donate" class="btn btn--without-border">Przekaż dary</a></li>
                 </sec:authorize>
                 <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>

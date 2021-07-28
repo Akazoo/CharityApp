@@ -19,7 +19,7 @@ public class HomeController {
     @GetMapping
     public String homeAction(Model model) {
         model.addAttribute("donations", donationService.count());
-        model.addAttribute("bags", donationService.bagsCount());
+        model.addAttribute("bags", donationService.getBagsCount());
         model.addAttribute("institutions", institutionService.getAll());
         return "index";
     }
