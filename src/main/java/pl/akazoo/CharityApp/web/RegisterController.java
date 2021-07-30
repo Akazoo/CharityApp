@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akazoo.CharityApp.domain.converter.Converter;
 import pl.akazoo.CharityApp.domain.dto.UserAdd;
 import pl.akazoo.CharityApp.domain.model.User;
+import pl.akazoo.CharityApp.service.EmailService;
 import pl.akazoo.CharityApp.service.UserService;
 
 import javax.validation.Valid;
@@ -21,9 +22,10 @@ public class RegisterController {
 
     private final Converter converter;
     private final UserService userService;
+    private final EmailService emailService;
 
     @GetMapping
-    public String registerForm(Model model){
+    public String registerForm(Model model) {
         model.addAttribute("userAdd", new UserAdd());
         return "register";
     }
@@ -35,15 +37,16 @@ public class RegisterController {
             return "register";
         }
         if (userService.exists(userAdd.getEmail())) {
-            bindingResult.rejectValue("email", null,"Podany adres email jest już w użyciu.");
+            bindingResult.rejectValue("email", null, "Podany adres email jest już w użyciu.");
             return "register";
         }
         if (!userAdd.getPassword().equals(userAdd.getPassword2())) {
-            bindingResult.rejectValue("password", null,"Hasła nie są takie same.");
+            bindingResult.rejectValue("password", null, "Hasła nie są takie same.");
             return "register";
         }
         User user = converter.userAddToUser(userAdd);
+        emailService.sendActivationToken(user);
         userService.add(user);
-        return "redirect:/login";
+        return "messages/registrationMessage";
     }
 }

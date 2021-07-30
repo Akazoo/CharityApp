@@ -9,10 +9,10 @@
 <div class="contact" id="contact">
     <h2>Skontaktuj się z nami</h2>
     <h3>Formularz kontaktowy</h3>
-    <form:form class="form--contact" method="post" action="/contact" modelAttribute="contactMessage">
+    <form:form class="form--contact" id="contactForm" method="post" action="/contact" modelAttribute="contactMessage">
 
         <div class="form-group form-group--50"><form:input required="required" path="firstName" placeholder="Imię"/></div>
-        <div class="form-group form-group--50"><form:input required="required" path="responseMail" placeholder="Twój email"/></div>
+        <div class="form-group form-group--50"><form:input required="required" id="formMail" path="responseMail" placeholder="Twój email"/></div>
         <div class="form-group"><form:textarea  required="required" path="text" placeholder="Wiadomość" rows="1"/></div>
         <button class="btn" type="submit">Wyślij</button>
     </form:form>

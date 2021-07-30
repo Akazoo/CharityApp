@@ -1,4 +1,4 @@
-package pl.akazoo.CharityApp.service;
+package pl.akazoo.CharityApp.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

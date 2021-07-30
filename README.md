@@ -44,6 +44,6 @@ Funkcjonalności:
 3. Formularz dodania donacji dostępny po zalogowaniu,
 4. Walidacja hasła.
 5. Formularz kontaktowy.
-6. Obsługa zapomnianych haseł,
+6. Resetowanie zapomnianych haseł,
 7. Mail z linkiem aktywacyjnym do potwierdzenia konta,
 8. Dodatkowy plik tlumaczeniowy dla języka angielskiego.

@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false)
     private String password;
     @Column
-    private String accountConfirmed;
+    private String accountConfirmation;
     @Column(nullable = false)
     private String role;
     @Column
@@ -31,6 +31,10 @@ public class User {
     private String firstName;
     @Column(nullable = false)
     private String lastName;
+    @Column
+    private String activationToken;
+    @Column
+    private LocalDate tokenExpireDate;
 
     @PrePersist
     public void setCreationDate(){

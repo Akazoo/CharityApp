@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.repository.CategoryRepository;
 import pl.akazoo.CharityApp.exceptions.ResourceNotFoundException;
-
 import java.util.ArrayList;
 import java.util.List;
 

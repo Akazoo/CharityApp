@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.domain.repository.UserRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,11 +19,8 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     public void add(User user){
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
         log.debug("Zapisywany obiekt: " + user);
         userRepository.save(user);
         log.debug("Zapisano: " + user);
@@ -30,12 +29,17 @@ public class UserService {
     public User getLoggedUser() {
         Optional<User> user = userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         return user.orElseGet(User::new);
-//        return userRepository
-//                .findByEmail(SecurityContextHolder.getContext().getAuthentication().getName())
-//                .orElseThrow(() -> new ResourceNotFoundException("User with name: " + SecurityContextHolder.getContext().getAuthentication().getName() + " not exist"));
+    }
+
+    public List<User> getAll(){
+        return userRepository.findAll();
     }
 
     public boolean exists(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public Optional<User> getUserByToken(String token) {
+        return userRepository.findUserByActivationToken(token);
     }
 }

@@ -1,4 +1,4 @@
-package pl.akazoo.CharityApp.config;
+package pl.akazoo.CharityApp.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import pl.akazoo.CharityApp.service.CustomUserDetailsService;
 
 @Configuration
 @RequiredArgsConstructor
@@ -32,6 +31,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/activation", "/activation/*").permitAll()
+                .antMatchers("/contact", "/contact/error").permitAll()
                 .antMatchers("/resources/images", "/resources/images/**", "/resources/css", "/resources/css/**", "/resources/js", "/resources/js/**").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/donate", "/donate/*").hasRole("USER")

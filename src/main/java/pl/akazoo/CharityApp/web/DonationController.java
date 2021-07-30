@@ -1,7 +1,6 @@
 package pl.akazoo.CharityApp.web;
 
 import lombok.RequiredArgsConstructor;
-import org.eclipse.jdt.internal.compiler.util.CompoundNameVector;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,7 +43,7 @@ public class DonationController {
         }
         Donation donation = converter.donationAddToDonation(donationAdd);
         donationService.add(donation);
-        return "form-confirmation";
+        return "messages/form-confirmation";
     }
 
     @ModelAttribute("institutions")

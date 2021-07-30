@@ -7,3 +7,4 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <script src="/resources/js/app.js"></script>
+<script src="/resources/js/general.js"></script>

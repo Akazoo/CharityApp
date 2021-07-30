@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akazoo.CharityApp.domain.model.ContactMessage;
 import pl.akazoo.CharityApp.service.EmailService;
@@ -19,16 +18,21 @@ public class EmailController {
     private final EmailService emailService;
 
     @PostMapping
-    public String sendMail(@Valid ContactMessage contactMessage, BindingResult bindingResult, @RequestHeader ("Referer") String referer){
+    public String sendMail(@Valid ContactMessage contactMessage, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "cowczesnie #contact";
+            return "redirect:/contact/error";
         }
-        emailService.sendMessage("akazoo@interia.pl", contactMessage.getFirstName(), contactMessage.getText() + contactMessage.getResponseMail());
+        emailService.sendContactMessage(contactMessage);
         return "redirect:/contact";
     }
 
     @GetMapping
     public String confirmed(){
-        return "sent";
+        return "messages/sent";
+    }
+
+    @GetMapping("/error")
+    public String error(){
+        return "messages/error";
     }
 }

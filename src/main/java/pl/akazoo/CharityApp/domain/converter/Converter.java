@@ -1,14 +1,19 @@
 package pl.akazoo.CharityApp.domain.converter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.akazoo.CharityApp.domain.dto.DonationAdd;
 import pl.akazoo.CharityApp.domain.dto.UserAdd;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.User;
+import pl.akazoo.CharityApp.security.TokenService;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
+
+import java.time.LocalDate;
+import java.time.Period;
 
 @Component
 @RequiredArgsConstructor
@@ -17,15 +22,20 @@ public class Converter {
     private final CategoryService categoryService;
     private final InstitutionService institutionService;
     private final UserService userService;
+    private final TokenService tokenService;
+    private final PasswordEncoder passwordEncoder;
 
     public User userAddToUser(UserAdd userAdd) {
         User user = new User();
         user.setFirstName(userAdd.getFirstName());
-        user.setPassword(userAdd.getPassword());
+        String encodedPassword = passwordEncoder.encode(userAdd.getPassword());
+        user.setPassword(encodedPassword);
         user.setRole("ROLE_USER");
-        user.setAccountConfirmed("waiting");
+        user.setAccountConfirmation("waiting");
         user.setEmail(userAdd.getEmail());
         user.setLastName(userAdd.getLastName());
+        user.setActivationToken(tokenService.getToken());
+        user.setTokenExpireDate(LocalDate.now().plus(Period.ofDays(7)));
         return user;
     }
 

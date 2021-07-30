@@ -1,7 +1,6 @@
 package pl.akazoo.CharityApp.domain.model;
 
 import lombok.*;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -19,5 +18,4 @@ public class ContactMessage {
     @NotBlank
     @Email
     private String responseMail;
-
 }
