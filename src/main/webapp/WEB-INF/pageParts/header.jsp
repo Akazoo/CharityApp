@@ -33,7 +33,10 @@
                         Witaj ${logged}!
                         <ul class="dropdown">
                             <li><a href="#">Profil</a></li>
-                            <li><a href="#">Moje zbiórki</a></li>
+                            <li><a href="#">Zarządzaj zbiórkami</a></li>
+                            <li><a href="#">Zarządzaj administratorami</a></li>
+                            <li><a href="#">Zarządzaj fundacjami</a></li>
+                            <li><a href="#">Zarządzaj użytkownikami</a></li>
                             <li><a href="/logout">Wyloguj</a></li>
                         </ul>
                     </li>
