@@ -3,12 +3,10 @@ package pl.akazoo.CharityApp.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.domain.repository.UserRepository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -29,10 +27,6 @@ public class UserService {
     public User getLoggedUser() {
         Optional<User> user = userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         return user.orElseGet(User::new);
-    }
-
-    public List<User> getAll(){
-        return userRepository.findAll();
     }
 
     public boolean exists(String email) {

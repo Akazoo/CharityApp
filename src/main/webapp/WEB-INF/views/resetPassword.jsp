@@ -12,20 +12,17 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
 </header>
 <section class="login-page">
-    <h2>Zaloguj się</h2>
-    <form method="post" action="/login">
+    <h2>Zresetuj hasło</h2>
+    <form:form method="post" modelAttribute="passwordReminder">
         <div class="form-group">
-            <input type="text" id="login" name="username" placeholder="Email"/>
-        </div>
-        <div class="form-group">
-            <input type="password" id="password" name="password" placeholder="Hasło"/>
-            <a href="/login/forgotten" class="btn btn--small btn--without-border reset-password">Zapomniałem/am hasła</a>
+            <form:input path="email" placeholder="Email"/>
+            <br/>
+            <form:errors path="email" element="p"/>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border">Załóż konto</a>
-            <button class="btn" type="submit">Zaloguj się</button>
+            <button class="btn" type="submit">Resetuj</button>
         </div>
-    </form>
+    </form:form>
 </section>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>

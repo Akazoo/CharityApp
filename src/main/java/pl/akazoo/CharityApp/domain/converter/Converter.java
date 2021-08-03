@@ -1,6 +1,7 @@
 package pl.akazoo.CharityApp.domain.converter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.akazoo.CharityApp.domain.dto.DonationAdd;
@@ -11,6 +12,8 @@ import pl.akazoo.CharityApp.security.TokenService;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
+
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -23,6 +26,8 @@ public class Converter {
     private final UserService userService;
     private final TokenService tokenService;
     private final PasswordEncoder passwordEncoder;
+    @Value("${charity.app.token.expire.day}")
+    private Integer tokenExpireDays;
 
     public User userAddToUser(UserAdd userAdd) {
         User user = new User();
@@ -34,7 +39,7 @@ public class Converter {
         user.setEmail(userAdd.getEmail());
         user.setLastName(userAdd.getLastName());
         user.setActivationToken(tokenService.getToken());
-        user.setTokenExpireDate(LocalDate.now().plus(Period.ofDays(7)));
+        user.setTokenExpireDate(LocalDate.now().plus(Period.ofDays(tokenExpireDays)));
         return user;
     }
 
