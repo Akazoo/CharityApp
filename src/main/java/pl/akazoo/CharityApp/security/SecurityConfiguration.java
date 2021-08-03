@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final CustomUserDetailsService userDetailsService;
+    private final CustomLoginSuccessHandler customLoginSuccessHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -41,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .successHandler(customLoginSuccessHandler)
                 .and()
                 .logout()
                 .logoutUrl("/logout")

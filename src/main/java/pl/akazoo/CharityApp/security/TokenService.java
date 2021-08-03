@@ -3,7 +3,6 @@ package pl.akazoo.CharityApp.security;
 import org.springframework.stereotype.Component;
 import pl.akazoo.CharityApp.domain.model.User;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.UUID;
 
 @Component

@@ -9,7 +9,6 @@ import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.security.TokenService;
 import pl.akazoo.CharityApp.service.EmailService;
 import pl.akazoo.CharityApp.service.UserService;
-
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -41,5 +40,9 @@ public class ActivationController {
             return "/messages/userConfirmed";
         }
         return "/messages/badToken";
+    }
+    @GetMapping("/failure")
+    private String activationFailure(){
+        return "/messages/activationFailure";
     }
 }

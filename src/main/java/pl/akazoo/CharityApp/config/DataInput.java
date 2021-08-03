@@ -49,8 +49,8 @@ public class DataInput {
 //            Institution institution3 = new Institution(null,"Bez domu","Pomoc dla osób nie posiadających miejsca zamieszkania.");
 
             User user = new User();
-            user.setPassword("aa");
             user.setEmail("aa");
+            user.setPassword(passwordEncoder.encode("aa"));
             user.setRole("ROLE_ADMIN");
             user.setAccountConfirmation("activated");
             user.setFirstName("Paweł");
