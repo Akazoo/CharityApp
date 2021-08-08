@@ -26,7 +26,7 @@ public class Converter {
     private final UserService userService;
     private final TokenService tokenService;
     private final PasswordEncoder passwordEncoder;
-    @Value("${charity.app.token.expire.day}")
+    @Value("${charity.app.token.expire.days}")
     private Integer tokenExpireDays;
 
     public User userAddToUser(UserAdd userAdd) {

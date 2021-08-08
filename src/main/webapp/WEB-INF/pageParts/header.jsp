@@ -12,32 +12,32 @@
             <ul class="nav--actions">
 
                 <sec:authorize access="isAnonymous()">
-                <li><a href="/login" class="btn btn--small btn--without-border">Zaloguj</a></li>
-                <li><a href="/register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+                <li><a href="/login" class="btn btn--small btn--without-border"><spring:message code="general.log"/></a></li>
+                <li><a href="/register" class="btn btn--small btn--highlighted"><spring:message code="general.register"/></a></li>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('USER')">
                 <li class="logged-user">
-                    Witaj ${logged}!
+                    <spring:message code="general.hello"/> ${logged}!
                     <ul class="dropdown">
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Moje zbiórki</a></li>
-                        <li><a href="/logout">Wyloguj</a></li>
+                        <li><a href="#"><spring:message code="general.profile"/></a></li>
+                        <li><a href="#"><spring:message code="general.collections"/></a></li>
+                        <li><a href="/logout"><spring:message code="general.logOut"/></a></li>
                     </ul>
                 </li>
                 </sec:authorize>
 
                 <sec:authorize access="hasRole('ADMIN')">
                     <li class="logged-user">
-                         Widok Administratora<br/>
-                        Witaj ${logged}!
+                        <spring:message code="admin.view"/><br/>
+                        <spring:message code="general.hello"/> ${logged}!
                         <ul class="dropdown">
-                            <li><a href="#">Profil</a></li>
-                            <li><a href="#">Zarządzaj zbiórkami</a></li>
-                            <li><a href="#">Zarządzaj administratorami</a></li>
-                            <li><a href="#">Zarządzaj fundacjami</a></li>
-                            <li><a href="#">Zarządzaj użytkownikami</a></li>
-                            <li><a href="/logout">Wyloguj</a></li>
+                            <li><a href="#"><spring:message code="general.profile"/></a></li>
+                            <li><a href="#"><spring:message code="admin.collections"/></a></li>
+                            <li><a href="#"><spring:message code="admin.admins"/></a></li>
+                            <li><a href="#"><spring:message code="admin.foundations"/></a></li>
+                            <li><a href="#"><spring:message code="admin.users"/></a></li>
+                            <li><a href="/logout"><spring:message code="general.logOut"/></a></li>
                         </ul>
                     </li>
                 </sec:authorize>
@@ -46,13 +46,13 @@
 
             <ul>
                 <li><a href="/" class="btn btn--without-border">Start</a></li>
-                <li><a href="/#steps" class="btn btn--without-border">O co chodzi?</a></li>
-                <li><a href="/#about-us" class="btn btn--without-border">O nas</a></li>
-                <li><a href="/#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+                <li><a href="/#steps" class="btn btn--without-border"><spring:message code="main.about"/></a></li>
+                <li><a href="/#about-us" class="btn btn--without-border"><spring:message code="main.us"/></a></li>
+                <li><a href="/#help" class="btn btn--without-border"><spring:message code="main.foundations"/></a></li>
                 <sec:authorize access="hasRole('USER')">
-                <li><a href="/donate" class="btn btn--without-border">Przekaż dary</a></li>
+                <li><a href="/donate" class="btn btn--without-border"><spring:message code="main.donate"/></a></li>
                 </sec:authorize>
-                <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
+                <li><a href="#contact" class="btn btn--without-border"><spring:message code="main.contact"/></a></li>
             </ul>
         </nav>
     </div>
