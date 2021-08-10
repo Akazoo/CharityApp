@@ -12,7 +12,7 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
 </header>
 <section class="login-page">
-    <h2>Zresetuj hasło</h2>
+    <h2><spring:message code="reset.resetPass"/></h2>
     <form:form method="post" modelAttribute="passwordReminder">
         <div class="form-group">
             <form:input path="email" placeholder="Email"/>
@@ -20,7 +20,7 @@
             <form:errors path="email" element="p"/>
         </div>
         <div class="form-group form-group--buttons">
-            <button class="btn" type="submit">Resetuj</button>
+            <button class="btn" type="submit"><spring:message code="reset.reset"/></button>
         </div>
     </form:form>
 </section>

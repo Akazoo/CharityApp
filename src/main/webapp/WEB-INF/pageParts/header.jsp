@@ -46,13 +46,13 @@
 
             <ul>
                 <li><a href="/" class="btn btn--without-border">Start</a></li>
-                <li><a href="/#steps" class="btn btn--without-border"><spring:message code="main.about"/></a></li>
-                <li><a href="/#about-us" class="btn btn--without-border"><spring:message code="main.us"/></a></li>
-                <li><a href="/#help" class="btn btn--without-border"><spring:message code="main.foundations"/></a></li>
+                <li><a href="/#steps" class="btn btn--without-border"><spring:message code="header.about"/></a></li>
+                <li><a href="/#about-us" class="btn btn--without-border"><spring:message code="header.us"/></a></li>
+                <li><a href="/#help" class="btn btn--without-border"><spring:message code="header.foundations"/></a></li>
                 <sec:authorize access="hasRole('USER')">
-                <li><a href="/donate" class="btn btn--without-border"><spring:message code="main.donate"/></a></li>
+                <li><a href="/donate" class="btn btn--without-border"><spring:message code="header.donate"/></a></li>
                 </sec:authorize>
-                <li><a href="#contact" class="btn btn--without-border"><spring:message code="main.contact"/></a></li>
+                <li><a href="#contact" class="btn btn--without-border"><spring:message code="header.contact"/></a></li>
             </ul>
         </nav>
     </div>

@@ -12,18 +12,19 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
 </header>
 <section class="login-page">
-    <h2>Zaloguj się</h2>
+    <h2><spring:message code="general.logIn"/></h2>
     <form method="post" action="/login">
         <div class="form-group">
             <input type="text" id="login" name="username" placeholder="Email"/>
         </div>
         <div class="form-group">
-            <input type="password" id="password" name="password" placeholder="Hasło"/>
-            <a href="/login/forgotten" class="btn btn--small btn--without-border reset-password">Zapomniałem/am hasła</a>
+            <spring:message code="form.password" var="formPass"/>
+            <input type="password" id="password" name="password" placeholder="${formPass}"/>
+            <a href="/login/forgotten" class="btn btn--small btn--without-border reset-password"><spring:message code="general.forgotPass"/></a>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border">Załóż konto</a>
-            <button class="btn" type="submit">Zaloguj się</button>
+            <a href="/register" class="btn btn--without-border"><spring:message code="general.register"/></a>
+            <button class="btn" type="submit"><spring:message code="general.log"/> </button>
         </div>
     </form>
 </section>

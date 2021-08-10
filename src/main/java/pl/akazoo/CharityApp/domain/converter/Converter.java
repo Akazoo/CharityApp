@@ -12,8 +12,6 @@ import pl.akazoo.CharityApp.security.TokenService;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
-
-import javax.validation.Valid;
 import java.time.LocalDate;
 import java.time.Period;
 
