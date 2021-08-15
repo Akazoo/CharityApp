@@ -31,7 +31,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
     private String checkAccountActivation() {
         User user = userService.getLoggedUser();
-        if (user.getAccountConfirmation().equals("activated")) {
+        if (user.getAccountConfirmation().equals("confirmed")) {
             return "/";
         }
         return "/activation/failure";

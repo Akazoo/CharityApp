@@ -20,8 +20,8 @@
                 <li class="logged-user">
                     <spring:message code="general.hello"/> ${logged}!
                     <ul class="dropdown">
-                        <li><a href="#"><spring:message code="general.profile"/></a></li>
-                        <li><a href="#"><spring:message code="general.collections"/></a></li>
+                        <li><a href="/user/profile"><spring:message code="general.profile"/></a></li>
+                        <li><a href="/user/collections"><spring:message code="general.collections"/></a></li>
                         <li><a href="/logout"><spring:message code="general.logOut"/></a></li>
                     </ul>
                 </li>
@@ -32,16 +32,22 @@
                         <spring:message code="admin.view"/><br/>
                         <spring:message code="general.hello"/> ${logged}!
                         <ul class="dropdown">
-                            <li><a href="#"><spring:message code="general.profile"/></a></li>
-                            <li><a href="#"><spring:message code="admin.collections"/></a></li>
-                            <li><a href="#"><spring:message code="admin.admins"/></a></li>
-                            <li><a href="#"><spring:message code="admin.foundations"/></a></li>
-                            <li><a href="#"><spring:message code="admin.users"/></a></li>
+                            <li><a href="/admin/profile"><spring:message code="general.profile"/></a></li>
+                            <li><a href="/admin/collections"><spring:message code="admin.collections"/></a></li>
+                            <li><a href="/admin/admins"><spring:message code="admin.admins"/></a></li>
+                            <li><a href="/admin/foundations"><spring:message code="admin.foundations"/></a></li>
+                            <li><a href="/admin/users"><spring:message code="admin.users"/></a></li>
                             <li><a href="/logout"><spring:message code="general.logOut"/></a></li>
                         </ul>
                     </li>
                 </sec:authorize>
 
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li><a href="" class="btn btn--small btn--highlighted">PL</a></li>
+                <li><a href="" class="btn btn--small btn--highlighted">ENG</a></li>
             </ul>
 
             <ul>

@@ -41,6 +41,7 @@ public class ActivationController {
         }
         return "/messages/badToken";
     }
+
     @GetMapping("/failure")
     private String activationFailure(){
         return "/messages/activationFailure";

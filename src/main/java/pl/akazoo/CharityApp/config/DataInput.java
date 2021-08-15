@@ -52,7 +52,7 @@ public class DataInput {
             user.setEmail("aa");
             user.setPassword(passwordEncoder.encode("aa"));
             user.setRole("ROLE_ADMIN");
-            user.setAccountConfirmation("activated");
+            user.setAccountConfirmation("confirmed");
             user.setFirstName("Paweł");
             user.setLastName("Zobaczymy");
             userService.add(user);
