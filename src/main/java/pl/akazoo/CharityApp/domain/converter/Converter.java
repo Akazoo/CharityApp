@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.akazoo.CharityApp.domain.dto.DonationAdd;
 import pl.akazoo.CharityApp.domain.dto.UserAdd;
+import pl.akazoo.CharityApp.domain.dto.UserEdit;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.security.TokenService;
@@ -55,5 +56,12 @@ public class Converter {
         donation.setPhoneNumber(donationAdd.getPhoneNumber());
         donation.setUser(userService.getLoggedUser());
         return donation;
+    }
+
+    public User userEditToLoggedUserUpdated(UserEdit userEdit) {
+        User user = userService.getLoggedUser();
+        user.setLastName(userEdit.getLastName());
+        user.setFirstName(userEdit.getFirstName());
+        return user;
     }
 }

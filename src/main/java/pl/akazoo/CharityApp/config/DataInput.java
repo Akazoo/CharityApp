@@ -51,7 +51,7 @@ public class DataInput {
             User user = new User();
             user.setEmail("aa");
             user.setPassword(passwordEncoder.encode("aa"));
-            user.setRole("ROLE_ADMIN");
+            user.setRole("ROLE_USER");
             user.setAccountConfirmation("confirmed");
             user.setFirstName("Paweł");
             user.setLastName("Zobaczymy");

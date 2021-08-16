@@ -92,7 +92,7 @@
                     <li>
                 </c:if>
                 <div class="col">
-                    <div class="title"><spring:message code="index.help.foundation"/> ${inst.name}</div>
+                    <div class="title"><spring:message code="index.help.foundation"/> "${inst.name}"</div>
                     <div class="subtitle"><spring:message code="index.help.goal"/> ${inst.description}</div>
                 </div>
                 <c:if test="${count.index %2!=0}">

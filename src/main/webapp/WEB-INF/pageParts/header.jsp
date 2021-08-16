@@ -18,7 +18,7 @@
 
                 <sec:authorize access="hasRole('USER')">
                 <li class="logged-user">
-                    <spring:message code="general.hello"/> ${logged}!
+                    <spring:message code="general.hello"/> ${loggedUser.firstName}!
                     <ul class="dropdown">
                         <li><a href="/user/profile"><spring:message code="general.profile"/></a></li>
                         <li><a href="/user/collections"><spring:message code="general.collections"/></a></li>
@@ -30,7 +30,7 @@
                 <sec:authorize access="hasRole('ADMIN')">
                     <li class="logged-user">
                         <spring:message code="admin.view"/><br/>
-                        <spring:message code="general.hello"/> ${logged}!
+                        <spring:message code="general.hello"/> ${loggedUser.firstName}!
                         <ul class="dropdown">
                             <li><a href="/admin/profile"><spring:message code="general.profile"/></a></li>
                             <li><a href="/admin/collections"><spring:message code="admin.collections"/></a></li>
