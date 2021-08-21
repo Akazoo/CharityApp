@@ -35,6 +35,8 @@ public class User {
     private String activationToken;
     @Column
     private LocalDate tokenExpireDate;
+    @Column
+    private String resetPasswordToken;
 
     @PrePersist
     public void setCreationDate(){

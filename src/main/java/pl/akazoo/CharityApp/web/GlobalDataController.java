@@ -3,7 +3,6 @@ package pl.akazoo.CharityApp.web;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.akazoo.CharityApp.domain.dto.PasswordChanger;
 import pl.akazoo.CharityApp.domain.model.ContactMessage;
 import pl.akazoo.CharityApp.service.UserService;
 
@@ -15,8 +14,7 @@ public class GlobalDataController {
 
     @ModelAttribute
     public void globalData(Model model) {
-        model.addAttribute("contactMessage", new ContactMessage());
         model.addAttribute("loggedUser", userService.getLoggedUser());
-        model.addAttribute("passwordChanger", new PasswordChanger());
+        model.addAttribute("contactMessage", new ContactMessage());
     }
 }

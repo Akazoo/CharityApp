@@ -13,4 +13,6 @@ public class PasswordChanger {
     private String password;
     @NotBlank(message = "To pole nie może być puste.")
     private String password2;
+    @NotBlank
+    private String email;
 }

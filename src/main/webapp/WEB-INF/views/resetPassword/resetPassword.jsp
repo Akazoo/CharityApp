@@ -12,21 +12,17 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
 </header>
 <section class="login-page">
-    <h2><spring:message code="general.logIn"/></h2>
-    <form method="post" action="/login">
+    <h2><spring:message code="reset.resetPass"/></h2>
+    <form:form method="post" modelAttribute="passwordReminder">
         <div class="form-group">
-            <input type="text" id="login" name="username" placeholder="Email"/>
-        </div>
-        <div class="form-group">
-            <spring:message code="form.password" var="formPass"/>
-            <input type="password" id="password" name="password" placeholder="${formPass}"/>
-            <a href="/login/forgotten" class="btn btn--small btn--without-border reset-password"><spring:message code="general.forgotPass"/></a>
+            <form:input path="email" placeholder="Email"/>
+            <br/>
+            <form:errors path="email" element="p"/>
         </div>
         <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border"><spring:message code="general.register"/></a>
-            <button class="btn" type="submit"><spring:message code="general.log"/> </button>
+            <button class="btn" type="submit"><spring:message code="reset.reset"/></button>
         </div>
-    </form>
+    </form:form>
 </section>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>

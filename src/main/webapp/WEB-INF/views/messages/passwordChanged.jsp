@@ -21,7 +21,7 @@
     <div class="slogan container container--90">
         <div class="slogan--item">
             <h1>
-                Gratulacej! Właśnie zmieniłeś hasło.<br>
+                Gratulacje! Właśnie zmieniłeś/aś hasło.<br>
                 Aby móc korzystać ze swojego konta musisz sie ponownie zalogować.
             </h1>
         </div>

@@ -34,13 +34,13 @@
         <div class="stats--item">
             <em>${donations}</em>
             <h3><spring:message code="index.donations"/></h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
+            <p id="steps">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam magnam, sint nihil cupiditate quas
                 quam.</p>
         </div>
     </div>
 </section>
 
-<section class="steps" id="steps">
+<section class="steps">
     <h2><spring:message code="index.steps.steps"/></h2>
 
     <div class="steps--container">
@@ -66,21 +66,21 @@
         </div>
     </div>
 
-    <a href="/register" class="btn btn--large"><spring:message code="general.register"/></a>
+    <a href="/register" class="btn btn--large" id="about-us"><spring:message code="general.register"/></a>
 </section>
 
-<section class="about-us" id="about-us">
+<section class="about-us">
     <div class="about-us--text">
         <h2><spring:message code="header.us"/></h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="<c:url value="/resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
+        <img id="help" src="<c:url value="/resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
     </div>
     <div class="about-us--image"><img src="<c:url value="/resources/images/about-us.jpg"/>" alt="People in circle"/>
     </div>
 </section>
 
-<section class="help" id="help">
+<section class="help">
     <h2><spring:message code="index.help.header"/></h2>
 
     <div class="help--slides active" data-id="1">

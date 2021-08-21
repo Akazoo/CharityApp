@@ -9,7 +9,7 @@
   <%@include file="/WEB-INF/pageParts/head.jsp"%>
 </head>
 <body>
-<header style="height: 20vh">
+<header class="header--small-page">
   <%@include file="/WEB-INF/pageParts/header.jsp"%>
 </header>
     <section class="login-page">

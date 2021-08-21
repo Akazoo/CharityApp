@@ -32,7 +32,19 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    public Optional<User> getUserByToken(String token) {
-        return userRepository.findUserByActivationToken(token);
+    public Optional<User> getUserByToken(String tokenName, String token) {
+       switch (tokenName){
+           case "activation":
+               return userRepository.findUserByActivationToken(token);
+           case "reset":
+               return userRepository.findUserByResetPasswordToken(token);
+           default:
+               return Optional.empty();
+       }
+    }
+
+    public User getUserByEmail(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.orElseGet(User::new);
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class DonationAdd {
 
-    @NotNull(message = "Podana liczba musi być większa od 0.")
+    @NotNull(message = "To pole nie może pozostać puste.")
     private Integer quantity;
     @NotEmpty(message = "Wybierz jedna lub więcej kategorii.")
     private List<Long> categories;

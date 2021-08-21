@@ -24,15 +24,15 @@ public class EmailService {
         javaMailSender.send(message);
     }
 
-    public String buildContactMessage(ContactMessage contactMessage){
+    private String buildContactMessage(ContactMessage contactMessage){
         return "Pytanie od " + contactMessage.getFirstName() +" :\n"
                 + contactMessage.getText() +"\n" +
                 "Odpowiedż proszę przesłać na adres :" + contactMessage.getResponseMail();
     }
 
-    public String buildActivationMessage(User user){
+    private String buildActivationMessage(User user){
         return "Aby aktywować konto wejdź proszę w podany link: \n "
-                +"http://localhost:8080/activation/" + user.getActivationToken() + "\n" +
+                +"http://localhost:8080/tokens/activation/" + user.getActivationToken() + "\n" +
                 "Link ważny jest przez 7 dni od daty rejestracji.\n" +
                 "Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email." +
                 "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
@@ -44,6 +44,21 @@ public class EmailService {
         message.setTo(user.getEmail());
         message.setSubject("Potwierdź swoje konto na \"Dobre Ręce\"");
         message.setText(buildActivationMessage(user));
+        javaMailSender.send(message);
+    }
+
+    public String buildForgottenPassMessage(User user){
+        return "Aby zmienić hasło wejdź proszę w podany link: \n "
+                +"http://localhost:8080/tokens/resetPassword/" + user.getResetPasswordToken() + "\n" +
+                "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
+    }
+
+    public void sendForgottenPassMessage(User user){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(companyMail);
+        message.setTo(user.getEmail());
+        message.setSubject("Przypomnienie hasła na portalu \"Dobre Ręce\"");
+        message.setText(buildForgottenPassMessage(user));
         javaMailSender.send(message);
     }
 }

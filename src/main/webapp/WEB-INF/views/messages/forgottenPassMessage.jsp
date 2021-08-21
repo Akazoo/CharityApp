@@ -8,22 +8,16 @@
     <%@include file="/WEB-INF/pageParts/head.jsp"%>
 </head>
 <body>
-<header style="height: 20vh">
+<header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
+    <div class="slogan container container--90">
+        <h2>
+            Token został pomyślnie wygenereowany.<br/>
+            Na maila prześlemy wszelkie
+            informacje odnośnie zmiany hasła.
+        </h2>
+    </div>
 </header>
-<section class="login-page">
-    <h2><spring:message code="reset.resetPass"/></h2>
-    <form:form method="post" modelAttribute="passwordReminder">
-        <div class="form-group">
-            <form:input path="email" placeholder="Email"/>
-            <br/>
-            <form:errors path="email" element="p"/>
-        </div>
-        <div class="form-group form-group--buttons">
-            <button class="btn" type="submit"><spring:message code="reset.reset"/></button>
-        </div>
-    </form:form>
-</section>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>

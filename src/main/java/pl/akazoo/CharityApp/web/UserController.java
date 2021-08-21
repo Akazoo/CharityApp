@@ -1,8 +1,7 @@
 package pl.akazoo.CharityApp.web;
 
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
-import org.hibernate.id.CompositeNestedGeneratedValueGenerator;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +23,7 @@ public class UserController {
 
     private final UserService userService;
     private final Converter converter;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/profile")
     public String profile(Model model) {
@@ -43,11 +43,26 @@ public class UserController {
         return "redirect:/user/profile";
     }
 
+    @GetMapping("/changePassword")
+    public String passwordChange(Model model) {
+        PasswordChanger passwordChanger = new PasswordChanger();
+        passwordChanger.setEmail(userService.getLoggedUser().getEmail());
+        model.addAttribute("passwordChanger",passwordChanger);
+        return "user/passwordChange";
+    }
+
     @PostMapping("/changePassword")
     public String passwordChanger(@Valid PasswordChanger passwordChanger, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user/profile";
+            return "user/passwordChange";
         }
+        if (!passwordChanger.getPassword().equals(passwordChanger.getPassword2())) {
+            bindingResult.rejectValue("password", null, "Hasła nie są takie same.");
+            return "user/passwordChange";
+        }
+        User user = userService.getUserByEmail(passwordChanger.getEmail());
+        user.setPassword(passwordEncoder.encode(passwordChanger.getPassword()));
+        userService.add(user);
         return "messages/passwordChanged";
     }
 
