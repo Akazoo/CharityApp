@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
-import pl.akazoo.CharityApp.domain.model.ContactMessage;
+import pl.akazoo.CharityApp.domain.dto.ContactMessage;
 import pl.akazoo.CharityApp.domain.model.User;
 
 @Component

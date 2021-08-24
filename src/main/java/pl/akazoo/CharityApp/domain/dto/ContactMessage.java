@@ -1,4 +1,4 @@
-package pl.akazoo.CharityApp.domain.model;
+package pl.akazoo.CharityApp.domain.dto;
 
 import lombok.*;
 import javax.validation.constraints.Email;

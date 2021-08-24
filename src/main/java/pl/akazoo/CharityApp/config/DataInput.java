@@ -15,7 +15,6 @@ import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -26,7 +25,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @RequiredArgsConstructor
 public class DataInput {
 
-    private AtomicBoolean alreadyRun = new AtomicBoolean(false);
+    private final AtomicBoolean alreadyRun = new AtomicBoolean(false);
 
     private final DonationService donationService;
     private final InstitutionService institutionService;
@@ -46,7 +45,7 @@ public class DataInput {
             Institution institution = new Institution(null, "Dbam o Zdrowie", "Pomoc dzieciom z ubogich rodzin.");
             Institution institution1 = new Institution(null, "A kogo", "Pomoc wybudzaniu dzieci ze śpiączki.");
             Institution institution2 = new Institution(null, "Dla dzieci", "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.");
-//            Institution institution3 = new Institution(null,"Bez domu","Pomoc dla osób nie posiadających miejsca zamieszkania.");
+            Institution institution3 = new Institution(null, "Bez domu", "Pomoc dla osób nie posiadających miejsca zamieszkania.");
 
             User user = new User();
             user.setEmail("aa");
@@ -56,8 +55,8 @@ public class DataInput {
             user.setFirstName("Paweł");
             user.setLastName("Zobaczymy");
             userService.add(user);
-            Donation donation = new Donation(null, 5, List.of(category), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user);
-
+            Donation donation = new Donation(null, 5, List.of(category,category2), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user, "created", LocalDate.now(), null);
+            Donation donation2 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user, "collected", LocalDate.now(), null);
             categoryService.add(category);
             categoryService.add(category1);
             categoryService.add(category2);
@@ -65,8 +64,9 @@ public class DataInput {
             institutionService.add(institution);
             institutionService.add(institution1);
             institutionService.add(institution2);
-//            institutionService.add(institution3);
+            institutionService.add(institution3);
             donationService.add(donation);
+            donationService.add(donation2);
         }
     }
 }

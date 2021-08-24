@@ -54,6 +54,7 @@ public class Converter {
         donation.setPickUpTime(donationAdd.getPickUpTime());
         donation.setPickUpComment(donationAdd.getPickUpComment());
         donation.setPhoneNumber(donationAdd.getPhoneNumber());
+        donation.setStatus("created");
         donation.setUser(userService.getLoggedUser());
         return donation;
     }

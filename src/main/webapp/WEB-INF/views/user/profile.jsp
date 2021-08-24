@@ -14,7 +14,7 @@
         <h2 class="account-header"><spring:message code="profile.yourAccount"/></h2>
     </div>
     <form:form modelAttribute="userEdit" method="post" action="/user/profile">
-        <table>
+        <table class="tablep">
             <tr>
                 <td><spring:message code="profile.username"/>/email</td>
                 <td><input value="${loggedUser.email}" disabled></td>

@@ -41,4 +41,15 @@ public class Donation {
     private String phoneNumber;
     @ManyToOne
     private User user;
+    @Column(nullable = false)
+    private String status;
+    @Column
+    private LocalDate statusChangedDate;
+    @Column
+    private LocalDate creationDate;
+
+    @PrePersist
+    public void setCreationDate(){
+        this.creationDate = LocalDate.now();
+    }
 }
