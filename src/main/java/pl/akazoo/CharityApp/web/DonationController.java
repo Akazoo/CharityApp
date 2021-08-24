@@ -33,17 +33,17 @@ public class DonationController {
     @GetMapping
     public String donateForm(Model model){
         model.addAttribute("donationAdd", new DonationAdd());
-        return "form";
+        return "mainPage/form";
     }
 
     @PostMapping("/completed")
     public String donateCompleted(@Valid DonationAdd donationAdd, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "form";
+            return "mainPage/form";
         }
         Donation donation = converter.donationAddToDonation(donationAdd);
         donationService.add(donation);
-        return "messages/form-confirmation";
+        return "messages/donationConfirmed";
     }
 
     @ModelAttribute("institutions")

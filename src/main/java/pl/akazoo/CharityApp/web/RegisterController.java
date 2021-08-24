@@ -27,26 +27,26 @@ public class RegisterController {
     @GetMapping
     public String registerForm(Model model) {
         model.addAttribute("userAdd", new UserAdd());
-        return "register";
+        return "mainPage/register";
     }
 
     @PostMapping
     public String registerConfirm(@Valid UserAdd userAdd, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "mainPage/register";
         }
         if (userService.exists(userAdd.getEmail())) {
             bindingResult.rejectValue("email", null, "Podany adres email jest już w użyciu.");
-            return "register";
+            return "mainPage/register";
         }
         if (!userAdd.getPassword().equals(userAdd.getPassword2())) {
             bindingResult.rejectValue("password", null, "Hasła nie są takie same.");
-            return "register";
+            return "mainPage/register";
         }
         User user = converter.userAddToUser(userAdd);
         emailService.sendActivationToken(user);
         userService.add(user);
-        return "messages/registrationMessage";
+        return "messages/registrationDone";
     }
 }

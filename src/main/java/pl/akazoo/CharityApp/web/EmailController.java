@@ -28,7 +28,7 @@ public class EmailController {
 
     @GetMapping
     public String confirmed(){
-        return "messages/sent";
+        return "messages/contactMessageSent";
     }
 
     @GetMapping("/error")

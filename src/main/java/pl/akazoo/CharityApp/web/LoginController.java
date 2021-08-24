@@ -25,28 +25,28 @@ public class LoginController {
 
     @GetMapping
     public String loginForm() {
-        return "login";
+        return "mainPage/login";
     }
 
     @GetMapping("/forgotten")
     public String forgottenPassword(Model model) {
         model.addAttribute("passwordReminder", new PasswordReminder());
-        return "resetPassword/resetPassword";
+        return "resetPassword/resetPasswordStart";
     }
 
     @PostMapping("/forgotten")
     public String forgottenPasswordCheck(@Valid PasswordReminder passwordReminder, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "resetPassword/resetPassword";
+            return "resetPassword/resetPasswordStart";
         }
         if(!userService.exists(passwordReminder.getEmail())){
             bindingResult.rejectValue("email",null,"Użytkownik o podanym mailu nie istnieje.");
-            return "resetPassword/resetPassword";
+            return "resetPassword/resetPasswordStart";
         }
         User user = userService.getUserByEmail(passwordReminder.getEmail());
         user.setResetPasswordToken(tokenService.getToken());
         emailService.sendForgottenPassMessage(user);
         userService.add(user);
-        return "messages/forgottenPassMessage";
+        return "messages/forgottenPassTokenCreated";
     }
 }

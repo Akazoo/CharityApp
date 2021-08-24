@@ -149,9 +149,8 @@ document.addEventListener("DOMContentLoaded", function () {
          * Show next or previous section etc.
          */
         updateForm() {
-            this.$step.innerText = this.currentStep;
 
-            // TODO: Validation
+            this.$step.innerText = this.currentStep;
 
             this.slides.forEach(slide => {
                 slide.classList.remove("active");

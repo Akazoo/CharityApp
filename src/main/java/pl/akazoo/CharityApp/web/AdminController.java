@@ -32,11 +32,11 @@ public class AdminController {
 
     @GetMapping("/foundations")
     public String foundations() {
-        return "/admin/foundations";
+        return "admin/foundations";
     }
 
     @GetMapping("/users")
     public String users() {
-        return "/admin/users";
+        return "admin/users";
     }
 }

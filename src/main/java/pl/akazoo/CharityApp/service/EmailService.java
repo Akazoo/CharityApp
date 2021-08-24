@@ -1,6 +1,7 @@
 package pl.akazoo.CharityApp.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
@@ -11,7 +12,8 @@ import pl.akazoo.CharityApp.domain.model.User;
 @RequiredArgsConstructor
 public class EmailService {
 
-    private final String companyMail = "akazooproductions@gmail.com";
+    @Value("${charity.app.company.email}")
+    private String companyMail;
     private final JavaMailSender javaMailSender;
 
     public void sendContactMessage(ContactMessage contactMessage) {
@@ -50,6 +52,7 @@ public class EmailService {
     public String buildForgottenPassMessage(User user){
         return "Aby zmienić hasło wejdź proszę w podany link: \n "
                 +"http://localhost:8080/tokens/resetPassword/" + user.getResetPasswordToken() + "\n" +
+                "Token jest jednorazowy." + "\n" +
                 "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
     }
 

@@ -41,18 +41,19 @@ public class TokensController {
                 present.setTokenExpireDate(LocalDate.now());
                 emailService.sendActivationToken(present);
                 userService.add(present);
-                return "/messages/tokenExpired";
+                return "messages/tokenExpired";
             }
             present.setAccountConfirmation("confirmed");
+            present.setActivationToken("");
             userService.add(present);
-            return "/messages/userConfirmed";
+            return "messages/userAccountConfirmed";
         }
-        return "/messages/badToken";
+        return "messages/badToken";
     }
 
     @GetMapping("/failure")
     public String activationFailure() {
-        return "/messages/activationFailure";
+        return "messages/activationFailure";
     }
 
     @GetMapping("/resetPassword/{token}")
@@ -64,10 +65,10 @@ public class TokensController {
             PasswordChanger passwordChanger = new PasswordChanger();
             passwordChanger.setEmail(user.get().getEmail());
             model.addAttribute("passwordChanger",passwordChanger);
-            return "/resetPassword/passwordChange";
+            return "resetPassword/passwordChange";
         }
 
-        return "/messages/badToken";
+        return "messages/badToken";
     }
 
     @PostMapping("/resetPassword/reset")
@@ -81,7 +82,8 @@ public class TokensController {
         }
         User user = userService.getUserByEmail(passwordChanger.getEmail());
         user.setPassword(passwordEncoder.encode(passwordChanger.getPassword()));
+        user.setResetPasswordToken("");
         userService.add(user);
-        return "messages/passwordChanged";
+        return "messages/passwordReset";
     }
 }

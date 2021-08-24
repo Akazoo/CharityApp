@@ -12,7 +12,7 @@
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
 </header>
 <section class="steps">
-    <h2><spring:message code="profile.changePassword"/></h2>
+    <h2><spring:message code="reset.password"/> ${passwordChanger.email}</h2>
     <form:form method="post" action="/tokens/resetPassword/reset" modelAttribute="passwordChanger">
         <div class="steps--container">
             <div class="form-group">
