@@ -13,7 +13,7 @@
     <div class="slogan container container--90">
         <h2 class="account-header">Szczegóły donacji o id ${donation.id}</h2>
     </div>
-    <div class="one-object tablep" style="overflow: auto">
+    <div class="one-object tablep top40" style="overflow: auto">
         <table>
             <tr>
                 <td>Ilość worków</td>
@@ -23,7 +23,7 @@
                 <td>Kategorie</td>
                 <td>
                     <c:forEach items="${donation.categories}" var="category">
-                        <textarea rows="1" cols="19" disabled>${category.name}</textarea>
+                        <textarea rows="1" cols="19" disabled>${category.name}</textarea><br/><br/>
                     </c:forEach>
                 </td>
             </tr>
@@ -33,13 +33,13 @@
             </tr>
             <tr>
                 <td>Adres</td>
-                <td><input value="${donation.street}" disabled> <br/>
-                    <input value="${donation.city}" disabled><br/>
+                <td><input value="${donation.street}" disabled><br/><br/>
+                    <input value="${donation.city}" disabled><br/><br/>
                     <input value="${donation.zipCode}" disabled></td>
             </tr>
             <tr>
                 <td>Data odbioru</td>
-                <td><input value="${donation.pickUpDate}" disabled><br/>
+                <td><input value="${donation.pickUpDate}" disabled><br/><br/>
                     <input value="${donation.pickUpTime}" disabled></td>
             </tr>
             <tr>
@@ -53,14 +53,14 @@
             </tr>
             <tr>
                 <td>Status/Data zmiany statusu</td>
-                <td><input value="${donation.status}" disabled><br/>
+                <td><input value="${donation.status}" disabled><br/><br/>
                     <input value="${donation.statusChangedDate}" disabled></td>
             </tr>
 
         </table>
     </div>
-    <div class="form-group--buttons edit-start">
-        <a href="/user/collections" class="btn btn--without-border">Wróć</a>
+    <div class="form-group--buttons " style="margin-left: 300px">
+        <a href="${back}" class="btn btn--without-border">Wróć</a>
     </div>
 </header>
 <footer>

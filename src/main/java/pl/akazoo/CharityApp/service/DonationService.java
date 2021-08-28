@@ -57,4 +57,8 @@ public class DonationService {
     public List<Donation> getAllByLoggedUser() {
         return donationRepository.findAllByUser(userService.getLoggedUser());
     }
+
+    public List<Donation> getAllDonations(){
+        return donationRepository.findAll();
+    }
 }

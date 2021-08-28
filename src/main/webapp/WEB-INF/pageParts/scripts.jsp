@@ -9,3 +9,4 @@
 <script src="/resources/js/app.js"></script>
 <script src="/resources/js/general.js"></script>
 <script src="/resources/js/profile.js"></script>
+<script src="/resources/js/alerts.js"></script>

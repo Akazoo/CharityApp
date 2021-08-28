@@ -14,7 +14,7 @@
         <h2 class="account-header"><spring:message code="profile.yourAccount"/></h2>
     </div>
     <form:form modelAttribute="userEdit" method="post" action="/user/profile">
-        <table class="tablep">
+        <table class="tablep top35">
             <tr>
                 <td><spring:message code="profile.username"/>/email</td>
                 <td><input value="${loggedUser.email}" disabled></td>
@@ -23,6 +23,16 @@
                 <td><spring:message code="profile.date"/></td>
                 <td><input value="${loggedUser.creationDate}" disabled></td>
             </tr>
+            <sec:authorize access="hasRole('ADMIN')">
+            <tr>
+                <td><spring:message code="profile.status"/></td>
+                <td><input value="${loggedUser.accountConfirmation}" disabled></td>
+            </tr>
+            <tr>
+                <td><spring:message code="profile.role"/></td>
+                <td><input value="${loggedUser.role}" disabled></td>
+            </tr>
+            </sec:authorize>
             <tr>
                 <td><spring:message code="form.name"/></td>
                 <td><form:input path="firstName" id="firstName" value="${loggedUser.firstName}" disabled="true"/>
@@ -48,6 +58,6 @@
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>

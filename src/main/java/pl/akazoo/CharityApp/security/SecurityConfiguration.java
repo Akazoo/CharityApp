@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/tokens","/tokens/**","/tokens/*").permitAll()
                 .antMatchers("/resources/images", "/resources/images/**", "/resources/css", "/resources/css/**", "/resources/js", "/resources/js/**").permitAll()
                 .antMatchers("/admin", "/admin/*").hasRole("ADMIN")
-                .antMatchers("/user","/user/*").hasRole("USER")
+                .antMatchers("/user","/user/*").authenticated()
                 .antMatchers("/donate", "/donate/*").hasRole("USER")
                 .antMatchers("/*").authenticated()
                 .anyRequest().authenticated()

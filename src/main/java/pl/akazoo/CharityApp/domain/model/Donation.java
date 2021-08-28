@@ -52,4 +52,7 @@ public class Donation {
     public void setCreationDate(){
         this.creationDate = LocalDate.now();
     }
+
+    @PreUpdate
+    public void setChangeDate(){this.statusChangedDate = LocalDate.now();}
 }

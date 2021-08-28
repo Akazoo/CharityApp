@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.domain.repository.UserRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,5 +48,9 @@ public class UserService {
     public User getUserByEmail(String email) {
         Optional<User> user = userRepository.findByEmail(email);
         return user.orElseGet(User::new);
+    }
+
+    public List<User> getUsersByRole(String role){
+        return userRepository.findUsersByRole(role);
     }
 }

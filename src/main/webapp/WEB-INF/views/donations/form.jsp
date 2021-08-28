@@ -38,6 +38,10 @@
         </div>
     </div>
 </div>
+    <div class="form-error">
+        <p>${error}</p>
+        <p>${error1}</p>
+    </div>
 </header>
 
 <section class="form--steps">
@@ -62,7 +66,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter"><spring:message code="form.step"/> <span>1</span>/4</div>
 
-        <form:form action="/donate/completed" method="post" modelAttribute="donationAdd">
+        <form:form action="/donation/donate/completed" method="post" modelAttribute="donationAdd">
 
             <!-- STEP 1 -->
             <div data-step="1" class="active">

@@ -8,7 +8,7 @@
 
     <div class="header--top">
         <h2 class="header--logo">Dobre Ręce</h2>
-        <nav class="container container--70 header--nav">
+        <nav class="container container--70 header--nav" style="margin-right: 20px">
             <ul class="nav--actions">
 
                 <sec:authorize access="isAnonymous()">
@@ -32,7 +32,7 @@
                         <spring:message code="admin.view"/><br/>
                         <spring:message code="general.hello"/> ${loggedUser.firstName}!
                         <ul class="dropdown">
-                            <li><a href="/admin/profile"><spring:message code="general.profile"/></a></li>
+                            <li><a href="/user/profile"><spring:message code="general.profile"/></a></li>
                             <li><a href="/admin/collections"><spring:message code="admin.collections"/></a></li>
                             <li><a href="/admin/admins"><spring:message code="admin.admins"/></a></li>
                             <li><a href="/admin/foundations"><spring:message code="admin.foundations"/></a></li>
@@ -56,7 +56,7 @@
                 <li><a href="/#about-us" class="btn btn--without-border"><spring:message code="header.us"/></a></li>
                 <li><a href="/#help" class="btn btn--without-border"><spring:message code="header.foundations"/></a></li>
                 <sec:authorize access="hasRole('USER')">
-                <li><a href="/donate" class="btn btn--without-border"><spring:message code="header.donate"/></a></li>
+                <li><a href="/donation/donate" class="btn btn--without-border"><spring:message code="header.donate"/></a></li>
                 </sec:authorize>
                 <li><a href="#contact" class="btn btn--without-border"><spring:message code="header.contact"/></a></li>
             </ul>

@@ -50,7 +50,7 @@ public class DataInput {
             User user = new User();
             user.setEmail("aa");
             user.setPassword(passwordEncoder.encode("aa"));
-            user.setRole("ROLE_USER");
+            user.setRole("ROLE_ADMIN");
             user.setAccountConfirmation("confirmed");
             user.setFirstName("Paweł");
             user.setLastName("Zobaczymy");
@@ -67,6 +67,18 @@ public class DataInput {
             institutionService.add(institution3);
             donationService.add(donation);
             donationService.add(donation2);
+            User user1 = new User();
+            user1.setEmail("bb");
+            user1.setPassword(passwordEncoder.encode("bb"));
+            user1.setRole("ROLE_USER");
+            user1.setAccountConfirmation("confirmed");
+            user1.setFirstName("Paweł");
+            user1.setLastName("Zobaczymy");
+            userService.add(user1);
+            Donation donation3 = new Donation(null, 5, List.of(category,category2), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user1, "created", LocalDate.now(), null);
+            Donation donation4 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user1, "collected", LocalDate.now(), null);
+            donationService.add(donation3);
+            donationService.add(donation4);
         }
     }
 }
