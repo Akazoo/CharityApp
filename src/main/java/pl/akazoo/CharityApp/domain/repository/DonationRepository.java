@@ -14,4 +14,6 @@ public interface DonationRepository extends JpaRepository<Donation,Long> {
     Optional<Long> countBags();
 
     List<Donation> findAllByUser(User user);
+
+    List<Donation> findAllByInstitution_Id(Long id);
 }

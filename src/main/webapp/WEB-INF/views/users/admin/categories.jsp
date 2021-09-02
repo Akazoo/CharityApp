@@ -11,31 +11,28 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Administratorzy</h2>
+        <h2 class="account-header">Kategorie</h2>
 
-        <div class="one-object tableA overflow-auto">
+        <div class="one-object tableA" style="overflow: auto">
             <table border="1" frame="hsides" rules="rows">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Email</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Status Konta</th>
+                    <th>Nazwa</th>
                     <th>Dostępne akcje</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="admin" items="${admins}">
+                <c:forEach var="category" items="${categories}">
                     <tr>
-                        <td>${admin.id}</td>
-                        <td>${admin.email}</td>
-                        <td>${admin.firstName}</td>
-                        <td>${admin.lastName}</td>
-                        <td>${admin.accountConfirmation}</td>
+                        <td>${category.id}</td>
+                        <td>${category.name}</td>
                         <td>
                         <span>
-                        <input type="button" class="btn btn--without-border demoteButton" id="${admin.id}" value="Odbierz uprawnienia"/>
+                            <c:if test="${category.id !=1}">
+                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="">
+                        <input type="button" class="btn btn--without-border deleteCategoryButton" id="${category.id}" value="Usuń"/>
+                            </c:if>
                         </span>
                         </td>
                     </tr>
@@ -43,6 +40,9 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="form-group--buttons " style="margin-left: 16%">
+        <a href="" class="btn btn--without-border">Dodaj kategorię</a>
     </div>
 </header>
 <footer>

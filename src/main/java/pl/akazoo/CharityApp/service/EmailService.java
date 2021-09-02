@@ -20,7 +20,18 @@ public class EmailService {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(companyMail);
         message.setTo(companyMail);
-        String subject = "Mam pytanie odnośnie apliakcji \"Dobre Ręce\"";
+        String subject = "Mam pytanie odnośnie aplikacji \"Dobre Ręce\"";
+        message.setSubject(subject);
+        message.setText(buildContactMessage(contactMessage));
+        javaMailSender.send(message);
+        sendConfirmationContact(contactMessage);
+    }
+
+    private void sendConfirmationContact(ContactMessage contactMessage){
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(companyMail);
+        message.setTo(contactMessage.getResponseMail());
+        String subject = "Twoje zapytanie odnośnie aplikacji \"Dobre Ręce\"";
         message.setSubject(subject);
         message.setText(buildContactMessage(contactMessage));
         javaMailSender.send(message);
@@ -64,4 +75,5 @@ public class EmailService {
         message.setText(buildForgottenPassMessage(user));
         javaMailSender.send(message);
     }
+
 }

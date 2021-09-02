@@ -19,8 +19,8 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public void add(User user){
-        log.debug("Zapisywany obiekt: " + user);
+    public void add(User user) {
+        log.debug("Obiekt do zapisu: " + user);
         userRepository.save(user);
         log.debug("Zapisano: " + user);
     }
@@ -35,14 +35,14 @@ public class UserService {
     }
 
     public Optional<User> getUserByToken(String tokenName, String token) {
-       switch (tokenName){
-           case "activation":
-               return userRepository.findUserByActivationToken(token);
-           case "reset":
-               return userRepository.findUserByResetPasswordToken(token);
-           default:
-               return Optional.empty();
-       }
+        switch (tokenName) {
+            case "activation":
+                return userRepository.findUserByActivationToken(token);
+            case "reset":
+                return userRepository.findUserByResetPasswordToken(token);
+            default:
+                return Optional.empty();
+        }
     }
 
     public User getUserByEmail(String email) {
@@ -50,7 +50,29 @@ public class UserService {
         return user.orElseGet(User::new);
     }
 
-    public List<User> getUsersByRole(String role){
+    public List<User> getUsersByRole(String role) {
         return userRepository.findUsersByRole(role);
+    }
+
+    public void demoteAdminToUser(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            User user1 = user.get();
+            user1.setRole("ROLE_USER");
+            add(user1);
+        }
+    }
+
+    public void promoteUserToAdmin(Long id){
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            User user1 = user.get();
+            user1.setRole("ROLE_ADMIN");
+            add(user1);
+        }
+    }
+
+    public int getNumberOfAdmins() {
+        return userRepository.countUsersByRoleEquals("ROLE_ADMIN");
     }
 }

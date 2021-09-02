@@ -32,14 +32,12 @@ public class UserController {
 
     @PostMapping("/profile")
     public String profileUpdate(@Valid UserEdit userEdit, BindingResult bindingResult) {
-
         if (bindingResult.hasErrors()) {
             return "users/profile";
         }
-
         User user = converter.userEditToLoggedUserUpdated(userEdit);
         userService.add(user);
-        return "redirect:/user/profile";
+        return "redirect:user/profile";
     }
 
     @GetMapping("/changePassword")

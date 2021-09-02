@@ -72,7 +72,7 @@
             <div data-step="1" class="active">
                 <h3><spring:message code="form.step.one.slogan"/>:</h3>
 
-                <c:forEach items="${categories}" var="category">
+                <c:forEach items="${categories}" begin="1" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:checkbox path="categories" class="cat" value="${category.id}"/>
@@ -114,7 +114,7 @@
             <div data-step="3">
                 <h3><spring:message code="form.step.third.slogan"/>:</h3>
 
-                <c:forEach items="${institutions}" var="inst">
+                <c:forEach items="${institutions}" begin="1" var="inst">
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:radiobutton path="institution" class="spa" value="${inst.id}"/>

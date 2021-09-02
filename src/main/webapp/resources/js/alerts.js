@@ -1,18 +1,36 @@
-const deleteButtons = [...document.querySelectorAll(".deleteButton")];
-const confirmButtons = document.querySelectorAll(".confirmButton");
+const deleteDonationButtons = document.querySelectorAll(".deleteDonationButton");
+const confirmDonationButtons = document.querySelectorAll(".confirmDonationButton");
+const demoteButton = document.querySelectorAll(".demoteButton");
+const deleteFoundationButtons = document.querySelectorAll(".deleteFoundationButton");
 
-deleteButtons.forEach((button) => {
+
+deleteDonationButtons.forEach((button) => {
     button.addEventListener("click", evt => {
-        if (confirm("Czy na pewno chcesz usunąć tę donację ?")) {
-            location.href='/donation/delete/' + button.id;
+        if (confirm("Czy na pewno chcesz usunąć tę darowiznę ?")) {
+            location.href = '/donation/delete/' + button.id;
         }
     })
 })
 
-confirmButtons.forEach((button) => {
+confirmDonationButtons.forEach((button) => {
     button.addEventListener("click", evt => {
         if (confirm("Czy potwierdzasz że donacja została odebrana ?")) {
             location.href = '/donation/confirm/' + button.id;
+        }
+    })
+})
+
+demoteButton.forEach((button) => {
+    button.addEventListener("click", evt => {
+        if (confirm("Czy na pewno chcesz zdegradować tego administratora ?")) {
+            location.href = '/admin/admins/demote/' + button.id;
+        }
+    })
+})
+deleteFoundationButtons.forEach((button) => {
+    button.addEventListener("click", evt => {
+        if (confirm("Czy na pewno chcesz usunąć tą fundację ?")) {
+            location.href = '/admin/foundations/delete/' + button.id;
         }
     })
 })

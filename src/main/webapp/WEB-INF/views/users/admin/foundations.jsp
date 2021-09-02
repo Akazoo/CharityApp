@@ -31,8 +31,10 @@
                         <td>${institution.description}</td>
                         <td>
                         <span>
-                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="">
-                        <input type="button" class="btn btn--without-border" value="Usuń"/>
+                              <c:if test="${institution.id !=1}">
+                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="location.href = '/admin/foundations/edit/' +${institution.id}">
+                        <input type="button" class="btn btn--without-border deleteFoundationButton" id="${institution.id}" value="Usuń"/>
+                              </c:if>
                         </span>
                         </td>
                     </tr>
@@ -42,7 +44,7 @@
         </div>
     </div>
     <div class="form-group--buttons " style="margin-left: 16%">
-        <a href="" class="btn btn--without-border">Dodaj fundacje</a>
+        <a href="/admin/foundations/add" class="btn btn--without-border">Dodaj fundacje</a>
     </div>
 </header>
 <footer>

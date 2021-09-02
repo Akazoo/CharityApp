@@ -42,6 +42,8 @@ public class DataInput {
             Category category1 = new Category(null, "ubrania, do wyrzucenia");
             Category category2 = new Category(null, "zabawki");
             Category category3 = new Category(null, "inne");
+            Category category0 = new Category(null, "deleted/usunięta");
+            Institution institution0 = new Institution(null, "deleted/usunięta", "deleted/usunięta");
             Institution institution = new Institution(null, "Dbam o Zdrowie", "Pomoc dzieciom z ubogich rodzin.");
             Institution institution1 = new Institution(null, "A kogo", "Pomoc wybudzaniu dzieci ze śpiączki.");
             Institution institution2 = new Institution(null, "Dla dzieci", "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.");
@@ -57,10 +59,12 @@ public class DataInput {
             userService.add(user);
             Donation donation = new Donation(null, 5, List.of(category,category2), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user, "created", LocalDate.now(), null);
             Donation donation2 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user, "collected", LocalDate.now(), null);
+            categoryService.add(category0);
             categoryService.add(category);
             categoryService.add(category1);
             categoryService.add(category2);
             categoryService.add(category3);
+            institutionService.add(institution0);
             institutionService.add(institution);
             institutionService.add(institution1);
             institutionService.add(institution2);
@@ -79,6 +83,7 @@ public class DataInput {
             Donation donation4 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user1, "collected", LocalDate.now(), null);
             donationService.add(donation3);
             donationService.add(donation4);
+
         }
     }
 }

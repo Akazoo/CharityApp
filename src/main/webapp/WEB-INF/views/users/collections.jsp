@@ -12,11 +12,11 @@
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
         <h2 class="account-header">
-            <sec:authorize access="hasRole('ADMIN')">Donacje</sec:authorize>
-            <sec:authorize access="hasRole('USER')">Twoje Donacje</sec:authorize>
+            <sec:authorize access="hasRole('ADMIN')">Darowizny</sec:authorize>
+            <sec:authorize access="hasRole('USER')">Twoje darowizny</sec:authorize>
         </h2>
 
-        <div class="one-object tableA" style="overflow: auto">
+        <div class="one-object tableA overflow-auto">
             <table border="1" frame="hsides" rules="rows">
                 <thead>
                 <tr>
@@ -43,7 +43,7 @@
                             <span>
                             <input type="button" class="btn btn--without-border" value="Szczegóły"
                                    onClick="location.href='/donation/${donation.id}'">
-                                <input type="button" class="btn btn--without-border deleteButton" value="Usuń"
+                                <input type="button" class="btn btn--without-border deleteDonationButton" value="Usuń"
                                        id="${donation.id}"/>
                             </span>
                             </td>
@@ -54,9 +54,9 @@
                             <input type="button" class="btn btn--without-border" value="Szczegóły"
                                    onClick="location.href='/donation/${donation.id}'">
                             <c:if test="${donation.status == 'created'}">
-                                <input type="button" class="btn btn--without-border deleteButton" value="Usuń"
+                                <input type="button" class="btn btn--without-border deleteDonationButton" value="Usuń"
                                        id="${donation.id}"/>
-                                <input type="button" class="btn btn--without-border confirmButton" value="Potwierdź"
+                                <input type="button" class="btn btn--without-border confirmDonationButton" value="Potwierdź"
                                        id="${donation.id}"/>
                             </c:if>
                             </span>

@@ -23,7 +23,7 @@
                 <td>Kategorie</td>
                 <td>
                     <c:forEach items="${donation.categories}" var="category">
-                        <textarea rows="1" cols="19" disabled>${category.name}</textarea><br/><br/>
+                        <textarea rows="2" cols="19" disabled>${category.name}</textarea><br/><br/>
                     </c:forEach>
                 </td>
             </tr>

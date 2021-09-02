@@ -1914,9 +1914,13 @@ form p {
     margin-top: -5%;
     margin-left: 40%;
 }
-.top35{
-    top: 35%;
+.top30{
+    top: 30%;
 }
 .top40{
     top:40%;
+}
+
+.overflow-auto{
+    overflow: auto;
 }

@@ -18,17 +18,28 @@ public class InstitutionService {
 
     private final InstitutionRepository institutionRepository;
 
-    public void add(Institution institution){
+    public void add(Institution institution) {
         log.debug("Obiekt do zapisu: " + institution);
         institutionRepository.save(institution);
         log.debug("Zapisano: " + institution);
     }
 
-    public List<Institution> getAll(){
+    public void delete(Long id) {
+        Institution institution = getById(id);
+        log.debug("Obiekt do zapisu: " + institution);
+        institutionRepository.delete(institution);
+        log.debug("Zapisano: " + institution);
+    }
+
+    public List<Institution> getAll() {
         return institutionRepository.findAll();
     }
 
-    public Institution getById(Long id){
-        return institutionRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Institution with id=" + id + " not exist"));
+    public Institution getById(Long id) {
+        return institutionRepository.findById(id).orElseGet(Institution::new);
+    }
+
+    public boolean existsByName(String name){
+        return institutionRepository.existsByName(name);
     }
 }

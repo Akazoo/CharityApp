@@ -24,6 +24,13 @@ public class CategoryService {
         log.debug("Zapisano: " + category);
     }
 
+    public void delete(Long id){
+        Category category = getById(id);
+        log.debug("Obiekt do usunięcia: " + category);
+        categoryRepository.delete(category);
+        log.debug("Usunięto: " + category);
+    }
+
     public List<Category> getAll(){
         return categoryRepository.findAll();
     }
@@ -35,6 +42,6 @@ public class CategoryService {
     }
 
     public Category getById(Long id){
-        return categoryRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Category with id=" + id + " not exist"));
+        return categoryRepository.findById(id).orElseGet(Category::new);
     }
 }

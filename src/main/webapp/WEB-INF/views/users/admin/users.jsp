@@ -36,9 +36,9 @@
                         <td>
                         <span>
                         <input type="button" class="btn btn--without-border" value="Edytuj" onClick="">
-                        <input type="button" class="btn btn--without-border" value="Usuń"/>
-                        <input type="button" class="btn btn--without-border" value="Zablokuj"/>
-                        <input type="button" class="btn btn--without-border" value="Nadaj uprawnienia"/>
+                        <input type="button" class="btn btn--without-border deleteUserButton" value="Usuń"/>
+                        <input type="button" class="btn btn--without-border blockUserButton"  value="Zablokuj"/>
+                        <input type="button" class="btn btn--without-border promoteUserButton" value="Nadaj uprawnienia"/>
                         </span>
                         </td>
                     </tr>

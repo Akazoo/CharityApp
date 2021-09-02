@@ -36,6 +36,7 @@
                             <li><a href="/admin/collections"><spring:message code="admin.collections"/></a></li>
                             <li><a href="/admin/admins"><spring:message code="admin.admins"/></a></li>
                             <li><a href="/admin/foundations"><spring:message code="admin.foundations"/></a></li>
+                            <li><a href="/admin/categories"><spring:message code="admin.categories"/></a></li>
                             <li><a href="/admin/users"><spring:message code="admin.users"/></a></li>
                             <li><a href="/logout"><spring:message code="general.logOut"/></a></li>
                         </ul>

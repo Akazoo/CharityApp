@@ -87,20 +87,20 @@
         <p><spring:message code="index.help.secondHeader"/></p>
 
         <ul class="help--slides-items">
-            <c:forEach var="inst" items="${institutions}" varStatus="count">
-                <c:if test="${count.index %2==0}">
+            <c:forEach var="inst" items="${institutions}" begin="1" varStatus="count">
+                <c:if test="${count.index %2!=0}">
                     <li>
                 </c:if>
                 <div class="col">
                     <div class="title"><spring:message code="index.help.foundation"/> "${inst.name}"</div>
                     <div class="subtitle"><spring:message code="index.help.goal"/> ${inst.description}</div>
                 </div>
-                <c:if test="${count.index %2!=0}">
+                <c:if test="${count.index %2==0}">
                     </li>
                 </c:if>
             </c:forEach>
-            <c:if test="${institutions.size() %2!=0 }">
-                <div class="col" style="visibility: hidden">
+            <c:if test="${institutions.size() %2==0 }">
+                <div class="col hidden">
                 </div>
                 </li>
             </c:if>
