@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.akazoo.CharityApp.domain.converter.Converter;
 import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
+import pl.akazoo.CharityApp.domain.dto.InstitutionEdit;
 import pl.akazoo.CharityApp.domain.dto.PasswordChanger;
 import pl.akazoo.CharityApp.domain.dto.UserEdit;
 import pl.akazoo.CharityApp.domain.model.Institution;
@@ -81,23 +82,29 @@ public class AdminController {
     @GetMapping("/foundations/edit/{id:\\d+}")
     public String editFoundation(@PathVariable Long id, Model model) {
         Institution institution = institutionService.getById(id);
-        model.addAttribute("foundation", converter.institutionToInstitutionAdd(institution));
+        model.addAttribute("institutionEdit", converter.institutionToInstitutionEdit(institution));
         return "foundations/edit";
     }
 
     @PostMapping("/foundations/edit/check")
-    public String editFoundation(@Valid InstitutionAdd institutionAdd, BindingResult bindingResult) {
+    public String editFoundation(@Valid InstitutionEdit institutionEdit, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "foundations/edit";
         }
-        Institution institution = converter.institutionAddToInstitution(institutionAdd);
+        if (institutionService.existsByName(institutionEdit.getName())){
+            if(!institutionService.getById(institutionEdit.getId()).getName().equals(institutionEdit.getName())) {
+                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
+                return "foundations/edit";
+            }
+        }
+        Institution institution = converter.institutionEditToInstitution(institutionEdit);
         institutionService.add(institution);
-        return "redirect:admins/foundations";
+        return "redirect:/admin/foundations";
     }
 
     @GetMapping("/foundations/add")
     public String addFoundation(Model model) {
-        model.addAttribute("foundation", new InstitutionAdd());
+        model.addAttribute("institutionAdd", new InstitutionAdd());
         return "foundations/add";
     }
 
@@ -112,6 +119,6 @@ public class AdminController {
         }
         Institution institution = converter.institutionAddToInstitution(institutionAdd);
         institutionService.add(institution);
-        return "redirect:admin/foundations";
+        return "redirect:/admin/foundations";
     }
 }

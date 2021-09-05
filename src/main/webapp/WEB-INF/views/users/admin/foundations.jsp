@@ -32,8 +32,10 @@
                         <td>
                         <span>
                               <c:if test="${institution.id !=1}">
-                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="location.href = '/admin/foundations/edit/' +${institution.id}">
-                        <input type="button" class="btn btn--without-border deleteFoundationButton" id="${institution.id}" value="Usuń"/>
+                                  <input type="button" class="btn btn--without-border" value="Edytuj"
+                                         onClick="location.href = '/admin/foundations/edit/' + ${institution.id}">
+                                  <input type="button" class="btn btn--without-border deleteFoundationButton"
+                                         id="${institution.id}" value="Usuń"/>
                               </c:if>
                         </span>
                         </td>

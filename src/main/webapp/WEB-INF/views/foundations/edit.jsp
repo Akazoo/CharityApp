@@ -11,53 +11,33 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header"><spring:message code="profile.yourAccount"/></h2>
+        <h2 class="account-header">Dodaj Fundację</h2>
     </div>
-    <form:form modelAttribute="userEdit" method="post" action="/user/profile">
-        <table class="tablep top35">
+    <form:form modelAttribute="institutionEdit" method="post" action="/admin/foundations/edit/check">
+        <table class="tablep top40">
+            <form:hidden path="id" value="${institutionEdit.id}"/>
             <tr>
-                <td><spring:message code="profile.username"/>/email</td>
-                <td><input value="${loggedUser.email}" disabled></td>
-            </tr>
-            <tr>
-                <td><spring:message code="profile.date"/></td>
-                <td><input value="${loggedUser.creationDate}" disabled></td>
-            </tr>
-            <sec:authorize access="hasRole('ADMIN')">
-            <tr>
-                <td><spring:message code="profile.status"/></td>
-                <td><input value="${loggedUser.accountConfirmation}" disabled></td>
-            </tr>
-            <tr>
-                <td><spring:message code="profile.role"/></td>
-                <td><input value="${loggedUser.role}" disabled></td>
-            </tr>
-            </sec:authorize>
-            <tr>
-                <td><spring:message code="form.name"/></td>
-                <td><form:input path="firstName" id="firstName" value="${loggedUser.firstName}" disabled="true"/>
-                    <form:errors path="firstName" element="p"/>
+                <td>Nazwa</td>
+                <td><form:input path="name"/>
+                    <form:errors path="name" element="p"/>
                 </td>
             </tr>
             <tr>
-                <td><spring:message code="form.lastname"/></td>
-                <td><form:input path="lastName" id="lastName" value="${loggedUser.lastName}" disabled="true"/>
-                    <form:errors path="lastName" element="p"/>
+                <td>Opis</td>
+                <td><form:textarea path="description"/>
+                    <form:errors path="description" element="p"/>
                 </td>
             </tr>
         </table>
-        <div class="form-group--buttons edit-start" id="pass">
-            <a class="btn btn--without-border" id="editStart"><spring:message code="general.edit.start"/></a>
-            <a href="/user/changePassword" class="btn btn--without-border"><spring:message code="general.edit.changePassword"/></a>
-            <div class="form-group--buttons edit-end">
-                <button class="btn hidden" id="editEnd" type="submit"><spring:message code="general.edit.end"/></button>
-            </div>
+
+        <div class="form-group--buttons center">
+            <button class="btn" type="submit">Dodaj</button>
         </div>
     </form:form>
 </header>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>

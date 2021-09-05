@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.akazoo.CharityApp.domain.dto.DonationAdd;
-import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
-import pl.akazoo.CharityApp.domain.dto.UserAdd;
-import pl.akazoo.CharityApp.domain.dto.UserEdit;
+import pl.akazoo.CharityApp.domain.dto.*;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.model.User;
@@ -68,11 +65,25 @@ public class Converter {
         return user;
     }
 
-    public InstitutionAdd institutionToInstitutionAdd(Institution institution) {
-        return new InstitutionAdd();
+    public InstitutionEdit institutionToInstitutionEdit(Institution institution) {
+        InstitutionEdit institutionEdit = new InstitutionEdit();
+        institutionEdit.setId(institution.getId());
+        institutionEdit.setName(institution.getName());
+        institutionEdit.setDescription(institution.getDescription());
+        return institutionEdit;
+    }
+    public Institution institutionEditToInstitution(InstitutionEdit institutionEdit) {
+        Institution institution1 = new Institution();
+        institution1.setId(institutionEdit.getId());
+        institution1.setName(institutionEdit.getName());
+        institution1.setDescription(institutionEdit.getDescription());
+        return institution1;
     }
 
     public Institution institutionAddToInstitution(InstitutionAdd institutionAdd) {
-        return new Institution();
+        Institution institution = new Institution();
+        institution.setName(institutionAdd.getName());
+        institution.setDescription(institutionAdd.getDescription());
+        return institution;
     }
 }
