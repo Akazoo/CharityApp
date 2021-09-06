@@ -12,6 +12,7 @@ import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
 import pl.akazoo.CharityApp.domain.dto.InstitutionEdit;
 import pl.akazoo.CharityApp.domain.dto.PasswordChanger;
 import pl.akazoo.CharityApp.domain.dto.UserEdit;
+import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.service.CategoryService;
@@ -20,6 +21,10 @@ import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,7 +35,6 @@ public class AdminController {
     private final UserService userService;
     private final InstitutionService institutionService;
     private final CategoryService categoryService;
-    private final Converter converter;
 
     @GetMapping("/collections")
     public String collections(Model model) {
@@ -52,7 +56,9 @@ public class AdminController {
 
     @GetMapping("/categories")
     public String categories(Model model) {
-        model.addAttribute("categories", categoryService.getAll());
+        List<Category> categories = categoryService.getAll();
+        categories.sort(Comparator.comparing(Category::getId));
+        model.addAttribute("categories", categories);
         return "users/admin/categories";
     }
 
@@ -70,55 +76,5 @@ public class AdminController {
         }
         userService.demoteAdminToUser(id);
         return "redirect:/admin/admins";
-    }
-
-    @GetMapping("/foundations/delete/{id:\\d+}")
-    public String delete(@PathVariable Long id) {
-        donationService.changeInstitutionToNoneByInstitutionId(id);
-        institutionService.delete(id);
-        return "redirect:/admin/foundations";
-    }
-
-    @GetMapping("/foundations/edit/{id:\\d+}")
-    public String editFoundation(@PathVariable Long id, Model model) {
-        Institution institution = institutionService.getById(id);
-        model.addAttribute("institutionEdit", converter.institutionToInstitutionEdit(institution));
-        return "foundations/edit";
-    }
-
-    @PostMapping("/foundations/edit/check")
-    public String editFoundation(@Valid InstitutionEdit institutionEdit, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "foundations/edit";
-        }
-        if (institutionService.existsByName(institutionEdit.getName())){
-            if(!institutionService.getById(institutionEdit.getId()).getName().equals(institutionEdit.getName())) {
-                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
-                return "foundations/edit";
-            }
-        }
-        Institution institution = converter.institutionEditToInstitution(institutionEdit);
-        institutionService.add(institution);
-        return "redirect:/admin/foundations";
-    }
-
-    @GetMapping("/foundations/add")
-    public String addFoundation(Model model) {
-        model.addAttribute("institutionAdd", new InstitutionAdd());
-        return "foundations/add";
-    }
-
-    @PostMapping("/foundations/add")
-    public String addFoundationCheck(@Valid InstitutionAdd institutionAdd, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "foundations/add";
-        }
-        if (institutionService.existsByName(institutionAdd.getName())) {
-            bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
-            return "foundations/add";
-        }
-        Institution institution = converter.institutionAddToInstitution(institutionAdd);
-        institutionService.add(institution);
-        return "redirect:/admin/foundations";
     }
 }

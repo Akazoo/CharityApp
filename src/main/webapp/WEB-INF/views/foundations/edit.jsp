@@ -11,7 +11,7 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Dodaj Fundację</h2>
+        <h2 class="account-header">Edytuj fundację</h2>
     </div>
     <form:form modelAttribute="institutionEdit" method="post" action="/admin/foundations/edit/check">
         <table class="tablep top40">
@@ -24,14 +24,14 @@
             </tr>
             <tr>
                 <td>Opis</td>
-                <td><form:textarea path="description"/>
+                <td><form:textarea rows="3" path="description"/>
                     <form:errors path="description" element="p"/>
                 </td>
             </tr>
         </table>
 
         <div class="form-group--buttons center">
-            <button class="btn" type="submit">Dodaj</button>
+            <button class="btn" type="submit">Edytuj</button>
         </div>
     </form:form>
 </header>

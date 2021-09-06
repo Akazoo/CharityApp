@@ -11,20 +11,14 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Dodaj fundację</h2>
+        <h2 class="account-header">Dodaj kategorię</h2>
     </div>
-    <form:form modelAttribute="institutionAdd" method="post">
+    <form:form modelAttribute="categoryAdd" method="post">
         <table class="tablep top40">
             <tr>
                 <td>Nazwa</td>
                 <td><form:input path="name"/>
                     <form:errors path="name" element="p"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Opis</td>
-                <td><form:textarea rows="3" path="description"/>
-                    <form:errors path="description" element="p"/>
                 </td>
             </tr>
         </table>

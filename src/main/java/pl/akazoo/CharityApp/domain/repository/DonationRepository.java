@@ -2,6 +2,7 @@ package pl.akazoo.CharityApp.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.User;
 
@@ -16,4 +17,6 @@ public interface DonationRepository extends JpaRepository<Donation,Long> {
     List<Donation> findAllByUser(User user);
 
     List<Donation> findAllByInstitution_Id(Long id);
+
+    List<Donation> findAllByCategoriesContains(Category category);
 }

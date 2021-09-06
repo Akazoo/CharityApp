@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.repository.DonationRepository;
@@ -20,6 +21,7 @@ public class DonationService {
     private final DonationRepository donationRepository;
     private final UserService userService;
     private final InstitutionService institutionService;
+    private final CategoryService categoryService;
 
     public Long count() {
         return donationRepository.count();
@@ -69,6 +71,17 @@ public class DonationService {
         Institution institution = institutionService.getById(1L);
         for (Donation donation : list) {
             donation.setInstitution(institution);
+            add(donation);
+        }
+    }
+
+    public void changeCategoryToNoneByCategoryId(Long id) {
+        Category category = categoryService.getById(id);
+        List<Donation> list = donationRepository.findAllByCategoriesContains(category);
+        Category category1 = categoryService.getById(1L);
+        for (Donation donation : list) {
+           donation.getCategories().remove(category);
+           donation.getCategories().add(category1);
             add(donation);
         }
     }

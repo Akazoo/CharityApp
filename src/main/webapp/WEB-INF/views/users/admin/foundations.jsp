@@ -52,6 +52,6 @@
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>

@@ -44,4 +44,8 @@ public class CategoryService {
     public Category getById(Long id){
         return categoryRepository.findById(id).orElseGet(Category::new);
     }
+
+    public boolean existsByName(String name) {
+        return categoryRepository.existsByName(name);
+    }
 }

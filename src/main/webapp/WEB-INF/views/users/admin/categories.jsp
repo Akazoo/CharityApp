@@ -30,8 +30,10 @@
                         <td>
                         <span>
                             <c:if test="${category.id !=1}">
-                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="">
-                        <input type="button" class="btn btn--without-border deleteCategoryButton" id="${category.id}" value="Usuń"/>
+                                <input type="button" class="btn btn--without-border" value="Edytuj"
+                                       onClick="location.href = '/admin/categories/edit/' + ${category.id}">
+                                <input type="button" class="btn btn--without-border deleteCategoryButton"
+                                       id="${category.id}" value="Usuń"/>
                             </c:if>
                         </span>
                         </td>
@@ -42,7 +44,7 @@
         </div>
     </div>
     <div class="form-group--buttons " style="margin-left: 16%">
-        <a href="" class="btn btn--without-border">Dodaj kategorię</a>
+        <a href="/admin/categories/add" class="btn btn--without-border">Dodaj kategorię</a>
     </div>
 </header>
 <footer>

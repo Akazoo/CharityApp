@@ -11,32 +11,27 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Dodaj fundację</h2>
+        <h2 class="account-header">Edytuj fundację</h2>
     </div>
-    <form:form modelAttribute="institutionAdd" method="post">
+    <form:form modelAttribute="categoryEdit" method="post" action="/admin/categories/edit/check">
         <table class="tablep top40">
+            <form:hidden path="id" value="${categoryEdit.id}"/>
             <tr>
                 <td>Nazwa</td>
                 <td><form:input path="name"/>
                     <form:errors path="name" element="p"/>
                 </td>
             </tr>
-            <tr>
-                <td>Opis</td>
-                <td><form:textarea rows="3" path="description"/>
-                    <form:errors path="description" element="p"/>
-                </td>
-            </tr>
         </table>
 
         <div class="form-group--buttons center">
-                <button class="btn" type="submit">Dodaj</button>
+            <button class="btn" type="submit">Edytuj</button>
         </div>
     </form:form>
 </header>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>

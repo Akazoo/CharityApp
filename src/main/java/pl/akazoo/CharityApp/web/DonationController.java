@@ -15,8 +15,10 @@ import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 
 import javax.validation.Valid;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/donation")
@@ -73,6 +75,8 @@ public class DonationController {
 
     @ModelAttribute("categories")
     public List<Category> getCategories() {
-        return categoryService.getAll();
+        List<Category> categories = categoryService.getAll();
+        categories.sort(Comparator.comparing(Category::getId));
+        return categories;
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.akazoo.CharityApp.domain.dto.*;
+import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.model.User;
@@ -85,5 +86,25 @@ public class Converter {
         institution.setName(institutionAdd.getName());
         institution.setDescription(institutionAdd.getDescription());
         return institution;
+    }
+
+    public CategoryEdit categoryToCategoryEdit(Category category) {
+        CategoryEdit categoryEdit = new CategoryEdit();
+        categoryEdit.setId(category.getId());
+        categoryEdit.setName(category.getName());
+        return categoryEdit;
+    }
+
+    public Category categoryEditToCategory(CategoryEdit categoryEdit){
+        Category category = new Category();
+        category.setId(categoryEdit.getId());
+        category.setName(categoryEdit.getName());
+        return category;
+    }
+
+    public Category categoryAddToCategory(CategoryAdd categoryAdd) {
+        Category category = new Category();
+        category.setName(categoryAdd.getName());
+        return category;
     }
 }

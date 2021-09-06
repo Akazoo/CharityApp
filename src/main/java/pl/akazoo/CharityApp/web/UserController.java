@@ -37,7 +37,7 @@ public class UserController {
         }
         User user = converter.userEditToLoggedUserUpdated(userEdit);
         userService.add(user);
-        return "redirect:user/profile";
+        return "redirect:/user/profile";
     }
 
     @GetMapping("/changePassword")

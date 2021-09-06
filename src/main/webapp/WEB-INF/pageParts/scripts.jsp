@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<script src="/resources/js/app.js"></script>
+<script src="/resources/js/donationForm.js"></script>
 <script src="/resources/js/general.js"></script>
 <script src="/resources/js/profile.js"></script>
 <script src="/resources/js/alerts.js"></script>
