@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Donation;
 import pl.akazoo.CharityApp.domain.model.Institution;
+import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.domain.repository.DonationRepository;
 
 import java.util.List;
@@ -82,6 +83,15 @@ public class DonationService {
         for (Donation donation : list) {
            donation.getCategories().remove(category);
            donation.getCategories().add(category1);
+            add(donation);
+        }
+    }
+
+    public void changeUserToNoneByUserId(Long id) {
+        List<Donation> list = donationRepository.findAllByUserId(id);
+        User user = userService.getById(1L);
+        for (Donation donation : list) {
+            donation.setUser(user);
             add(donation);
         }
     }

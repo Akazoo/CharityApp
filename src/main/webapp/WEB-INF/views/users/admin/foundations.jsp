@@ -24,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="institution" items="${institutions}">
+                <c:forEach var="institution" begin="1" items="${institutions}">
                     <tr>
                         <td>${institution.id}</td>
                         <td>${institution.name}</td>

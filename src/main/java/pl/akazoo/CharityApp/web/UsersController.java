@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.UserService;
 
 @Controller
@@ -14,10 +15,12 @@ import pl.akazoo.CharityApp.service.UserService;
 public class UsersController {
 
     private final UserService userService;
+    private final DonationService donationService;
 
     @GetMapping("/delete/{id:\\d+}")
     public String deleteUser(@PathVariable Long id) {
-
+        donationService.changeUserToNoneByUserId(id);
+        userService.delete(id);
         return "redirect:/admin/users";
     }
 
@@ -34,6 +37,7 @@ public class UsersController {
 
     @GetMapping("/block/{id:\\d+}")
     public String blockUser(@PathVariable Long id) {
+        userService.blockUnblockById(id);
         return "redirect:/admin/users";
     }
 

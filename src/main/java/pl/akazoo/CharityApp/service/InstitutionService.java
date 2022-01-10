@@ -26,9 +26,9 @@ public class InstitutionService {
 
     public void delete(Long id) {
         Institution institution = getById(id);
-        log.debug("Obiekt do zapisu: " + institution);
+        log.debug("Obiekt do usunięcia: " + institution);
         institutionRepository.delete(institution);
-        log.debug("Zapisano: " + institution);
+        log.debug("Usunięto: " + institution);
     }
 
     public List<Institution> getAll() {

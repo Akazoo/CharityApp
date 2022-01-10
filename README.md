@@ -59,3 +59,4 @@ Funkcjonalności:
 5. Przekazywanie(archiwizacja) darów.
 6. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
 7. Logownie. roliing files/pliki
+8. Block ograniczenia

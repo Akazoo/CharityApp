@@ -23,7 +23,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="category" items="${categories}">
+                <c:forEach var="category" begin="1" items="${categories}">
                     <tr>
                         <td>${category.id}</td>
                         <td>${category.name}</td>

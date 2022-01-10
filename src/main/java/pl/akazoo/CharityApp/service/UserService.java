@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.domain.repository.UserRepository;
 
@@ -55,24 +56,38 @@ public class UserService {
     }
 
     public void demoteAdminToUser(Long id) {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) {
-            User user1 = user.get();
-            user1.setRole("ROLE_USER");
-            add(user1);
-        }
+        User user = getById(id);
+        user.setRole("ROLE_USER");
+        add(user);
+
     }
 
-    public void elevateUserToAdmin(Long id){
-        Optional<User> user = userRepository.findById(id);
-        if (user.isPresent()) {
-            User user1 = user.get();
-            user1.setRole("ROLE_ADMIN");
-            add(user1);
-        }
+    public void elevateUserToAdmin(Long id) {
+        User user = getById(id);
+        user.setRole("ROLE_ADMIN");
+        add(user);
     }
 
     public int getNumberOfAdmins() {
         return userRepository.countUsersByRoleEquals("ROLE_ADMIN");
+    }
+
+    public void delete(Long id) {
+        User user = getById(id);
+        log.debug("Obiekt do usunięcia: " + user);
+        userRepository.delete(user);
+        log.debug("Usunięto: " + user);
+    }
+
+    public User getById(Long id) {
+        return userRepository.findById(id).orElseGet(User::new);
+    }
+
+    public void blockUnblockById(Long id) {
+        User user = getById(id);
+        String status = user.getAccountConfirmation();
+        if (!status.equals("blocked")) user.setAccountConfirmation("blocked");
+        if (status.equals("blocked")) user.setAccountConfirmation("active");
+        add(user);
     }
 }

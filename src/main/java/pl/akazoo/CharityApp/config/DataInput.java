@@ -49,6 +49,15 @@ public class DataInput {
             Institution institution2 = new Institution(null, "Dla dzieci", "Pomoc osobom znajdującym się w trudnej sytuacji życiowej.");
             Institution institution3 = new Institution(null, "Bez domu", "Pomoc dla osób nie posiadających miejsca zamieszkania.");
 
+            User user0 = new User();
+            user0.setEmail("deleted/usunięty");
+            user0.setPassword(passwordEncoder.encode("\"deleted/usunięty\""));
+            user0.setRole("ROLE_USER");
+            user0.setAccountConfirmation("confirmed");
+            user0.setFirstName("deleted/usunięty");
+            user0.setLastName("deleted/usunięty");
+            userService.add(user0);
+
             User user = new User();
             user.setEmail("aa");
             user.setPassword(passwordEncoder.encode("aa"));
