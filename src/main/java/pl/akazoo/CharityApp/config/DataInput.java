@@ -57,6 +57,16 @@ public class DataInput {
             user.setFirstName("Paweł");
             user.setLastName("Zobaczymy");
             userService.add(user);
+
+            User user3 = new User();
+            user3.setEmail("cc");
+            user3.setPassword(passwordEncoder.encode("cc"));
+            user3.setRole("ROLE_ADMIN");
+            user3.setAccountConfirmation("confirmed");
+            user3.setFirstName("Paweł");
+            user3.setLastName("Zobaczymy");
+            userService.add(user3);
+
             Donation donation = new Donation(null, 5, List.of(category,category2), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user, "created", LocalDate.now(), null);
             Donation donation2 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user, "collected", LocalDate.now(), null);
             categoryService.add(category0);
@@ -71,6 +81,7 @@ public class DataInput {
             institutionService.add(institution3);
             donationService.add(donation);
             donationService.add(donation2);
+
             User user1 = new User();
             user1.setEmail("bb");
             user1.setPassword(passwordEncoder.encode("bb"));
@@ -79,6 +90,7 @@ public class DataInput {
             user1.setFirstName("Paweł");
             user1.setLastName("Zobaczymy");
             userService.add(user1);
+
             Donation donation3 = new Donation(null, 5, List.of(category,category2), institution, "asd", "asd", "121", LocalDate.now(), LocalTime.now(), "niewiem", "+48 587416524", user1, "created", LocalDate.now(), null);
             Donation donation4 = new Donation(null, 10, List.of(category,category3), institution, "asdd", "asdds", "11221", LocalDate.now(), LocalTime.now(), "niewisem", "+48 587416524", user1, "collected", LocalDate.now(), null);
             donationService.add(donation3);

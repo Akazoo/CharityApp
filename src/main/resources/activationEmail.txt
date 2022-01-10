@@ -2,4 +2,4 @@
                 +"http://localhost:8080/activation/" + user.getActivationToken() + "\n" +
                 "Link ważny jest przez 7 dni od daty rejestracji.\n" +
                 "Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email." +
-                "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
+                "Dziękujemy za Twój udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";

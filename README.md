@@ -14,18 +14,18 @@ Features:
 
 - Currently:
 
-1. Email message with activation link to confirm Your account,
-2. Contact form,
-3. User registration with password and email validation,
+1. Email message with activation link to confirm Your account.
+2. Contact form.
+3. User registration with password and email validation.
 4. Add donation form available after logging in.
 
 - In the nearest future:
 
-1. Your own account with donation list and settings,
-2. Administrator account and management panel for donations, administrators, foundations and users,
-3. Forgotten passwords reset,
-4. Additional translation file for English language,
-5. Donations archiving,
+1. Your own account with donation list and settings.
+2. Administrator account and management panel for donations, administrators, foundations and users.
+3. Forgotten passwords reset.
+4. Additional translation file for English language.
+5. Donations archiving.
 6. Email messages sent to users regarding changes of their accounts or application updates.
 
 Polish transcription :
@@ -45,16 +45,17 @@ Funkcjonalności:
 
 - Aktualne:
 
-1. Mail z linkiem aktywacyjnym do potwierdzenia konta,
-2. Formularz kontaktowy,
+1. Mail z linkiem aktywacyjnym do potwierdzenia konta.
+2. Formularz kontaktowy.
 3. Rejestracja użytkownika z walidacja hasła oraz maila.
-4. Formularz dodania donacji dostępny po zalogowaniu,
+4. Formularz dodania donacji dostępny po zalogowaniu.
 
 - Planowane:
 
-1. Własne konto z listą donacji oraz ustawieniami,
-2. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami,
-3. Resetowanie zapomnianych haseł,
-4. Dodatkowy plik tłumaczeniowy dla języka angielskiego,
-5. Przekazywanie(archiwizacja) darów,
+1. Własne konto z listą donacji oraz ustawieniami.
+2. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami.
+3. Resetowanie zapomnianych haseł.
+4. Dodatkowy plik tłumaczeniowy dla języka angielskiego.
+5. Przekazywanie(archiwizacja) darów.
 6. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
+7. Logownie. roliing files/pliki

@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/admin")
 @RequiredArgsConstructor
-public class AdminController {
+public class AdminPanelController {
 
     private final DonationService donationService;
     private final UserService userService;
@@ -45,6 +45,13 @@ public class AdminController {
     @GetMapping("/admins")
     public String admins(Model model) {
         model.addAttribute("admins", userService.getUsersByRole("ROLE_ADMIN"));
+        return "/users/admin/admins";
+    }
+
+    @GetMapping("/admins/badAction")
+    public String adminsBadAction(Model model) {
+        model.addAttribute("admins", userService.getUsersByRole("ROLE_ADMIN"));
+        model.addAttribute("noAdmin","Nie możesz zdegradować siebie <br> lub po wykonaniu tej akcji liczba administratorów będzie mniejsza niż 1.");
         return "/users/admin/admins";
     }
 
@@ -66,15 +73,5 @@ public class AdminController {
     public String users(Model model) {
         model.addAttribute("users", userService.getUsersByRole("ROLE_USER"));
         return "users/admin/users";
-    }
-
-    @GetMapping("/admins/demote/{id:\\d+}")
-    public String demotion(@PathVariable Long id) {
-        User user = userService.getLoggedUser();
-        if (user.getId().equals(id) || userService.getNumberOfAdmins() <= 1) {
-            return "redirect:/admin/admins";
-        }
-        userService.demoteAdminToUser(id);
-        return "redirect:/admin/admins";
     }
 }
