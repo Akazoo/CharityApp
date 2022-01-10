@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 
+import java.util.Locale;
+
 @Controller
 @RequestMapping("/")
 @RequiredArgsConstructor

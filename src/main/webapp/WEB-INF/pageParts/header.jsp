@@ -47,8 +47,8 @@
                 <li></li>
                 <li></li>
                 <li></li>
-                <li><a href="" class="btn btn--small btn--highlighted">PL</a></li>
-                <li><a href="" class="btn btn--small btn--highlighted">ENG</a></li>
+                <li><a id="PL" class="btn btn--small btn--highlighted">PL</a></li>
+                <li><a id="ENG" class="btn btn--small btn--highlighted">ENG</a></li>
             </ul>
 
             <ul>

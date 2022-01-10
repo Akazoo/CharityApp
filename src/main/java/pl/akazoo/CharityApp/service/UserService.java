@@ -63,7 +63,7 @@ public class UserService {
         }
     }
 
-    public void promoteUserToAdmin(Long id){
+    public void elevateUserToAdmin(Long id){
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User user1 = user.get();
