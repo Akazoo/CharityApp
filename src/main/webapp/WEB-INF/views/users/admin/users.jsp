@@ -35,10 +35,12 @@
                         <td>${user.accountConfirmation}</td>
                         <td>
                         <span>
+                            <c:if test="${user.id !=1}">
                         <input type="button" class="btn btn--without-border" value="Edytuj" onClick="location.href = '/admin/users/edit/' + ${user.id}">
                         <input type="button" class="btn btn--without-border deleteUserButton"  id="${user.id}" value="Usuń"/>
                         <input type="button" class="btn btn--without-border blockUserButton" id="${user.id}"  value="Zablokuj/Oblokuj"/>
                         <input type="button" class="btn btn--without-border elevateUserButton" id="${user.id}" value="Nadaj uprawnienia"/>
+                            </c:if>
                         </span>
                         </td>
                     </tr>

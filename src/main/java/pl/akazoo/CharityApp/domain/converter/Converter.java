@@ -107,4 +107,11 @@ public class Converter {
         category.setName(categoryAdd.getName());
         return category;
     }
+
+    public User userEditToUser(UserEdit userEdit) {
+        User user = userService.getById(userEdit.getId());
+        user.setLastName(userEdit.getLastName());
+        user.setFirstName(userEdit.getFirstName());
+        return user;
+    }
 }

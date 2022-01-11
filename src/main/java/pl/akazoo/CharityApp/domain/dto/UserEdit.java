@@ -10,4 +10,5 @@ public class UserEdit {
     private String firstName;
     @NotBlank(message = "To pole nie może być puste.")
     private String lastName;
+    private Long id;
 }
