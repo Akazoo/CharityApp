@@ -11,7 +11,7 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Użytkownik ID ${userToEdit.id}</h2>
+        <h2 class="account-header"><spring:message code="general.user"/> ID ${userToEdit.id}</h2>
     </div>
     <form:form modelAttribute="userEdit" method="post" action="/admin/users/edit/check">
         <table class="tablep top30">

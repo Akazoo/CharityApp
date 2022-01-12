@@ -13,7 +13,7 @@
     <div class="slogan container container--90">
         <h2>
             Twoje konto zostało aktywowane.<br/>
-            Możesz kożystać już ze wszystkich opcji portalu.
+            Możesz korzystać już ze wszystkich opcji portalu.
         </h2>
     </div>
 </header>

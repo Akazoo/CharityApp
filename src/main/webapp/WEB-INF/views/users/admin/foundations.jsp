@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="form-group--buttons " style="margin-left: 16%">
-        <a href="/admin/foundations/add" class="btn btn--without-border">Dodaj fundacje</a>
+        <a href="/admin/foundations/add" class="btn btn--without-border">Dodaj fundację</a>
     </div>
 </header>
 <footer>

@@ -11,7 +11,7 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Administratorzy</h2>
+        <h2 class="account-header"><spring:message code="admin.admins"/></h2>
 
         <div class="one-object tableA overflow-auto">
             <table border="1" frame="hsides" rules="rows">
@@ -19,10 +19,10 @@
                 <tr>
                     <th>Id</th>
                     <th>Email</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Status Konta</th>
-                    <th>Dostępne akcje</th>
+                    <th><spring:message code="admin.firstName"/></th>
+                    <th><spring:message code="admin.lastName"/></th>
+                    <th><spring:message code="admin.accountStatus"/></th>
+                    <th><spring:message code="admin.actions"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@
                         <td>${admin.accountConfirmation}</td>
                         <td>
                         <span>
-                        <input type="button" class="btn btn--without-border demoteButton" id="${admin.id}" value="Odbierz uprawnienia"/>
+                        <input type="button" class="btn btn--without-border demoteButton" id="${admin.id}" value="<spring:message code="admin.degrade"/>"/>
                         </span>
                         </td>
                     </tr>

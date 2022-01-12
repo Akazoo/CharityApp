@@ -85,7 +85,6 @@
                 <form:errors path="categories" element="p"/>
                 <br/>
                 <div class="form-group form-group--buttons">
-                    <button type="button" class="btn prev-step"><spring:message code="form.backwards"/></button>
                     <button type="button" class="btn next-step"><spring:message code="form.forward"/></button>
                 </div>
             </div>

@@ -44,27 +44,27 @@ public class EmailService {
     }
 
     private String buildActivationMessage(User user){
-        return "Aby aktywować konto wejdź proszę w podany link: \n "
-                +"http://localhost:8080/tokens/activation/" + user.getActivationToken() + "\n" +
+        return "Aby aktywować konto wejdź proszę w podany link: \n\n"
+                + "http://localhost:8080/tokens/activation/" + user.getActivationToken() + "\n\n" +
                 "Link ważny jest przez 7 dni od daty rejestracji.\n" +
-                "Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email." +
-                "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
+                "Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email.\n" +
+                "Dziękujemy za Twoj udział w naszej akcji :)\nZespół \"Dobre Ręce\"";
     }
 
     public void sendActivationToken(User user){
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(companyMail);
         message.setTo(user.getEmail());
-        message.setSubject("Potwierdź swoje konto na \"Dobre Ręce\"");
+        message.setSubject("Potwierdź swoje konto na portalu \"Dobre Ręce\"");
         message.setText(buildActivationMessage(user));
         javaMailSender.send(message);
     }
 
     public String buildForgottenPassMessage(User user){
-        return "Aby zmienić hasło wejdź proszę w podany link: \n "
-                +"http://localhost:8080/tokens/resetPassword/" + user.getResetPasswordToken() + "\n" +
+        return "Aby zmienić hasło wejdź proszę w podany link: \n\n"
+                +"http://localhost:8080/tokens/resetPassword/" + user.getResetPasswordToken() + "\n\n" +
                 "Token jest jednorazowy." + "\n" +
-                "Dziękujemy za Twoj udział w naszej akcji :)\n Zespół \"Dobre Ręce\"";
+                "Dziękujemy za Twoj udział w naszej akcji :)\nZespół \"Dobre Ręce\"";
     }
 
     public void sendForgottenPassMessage(User user){

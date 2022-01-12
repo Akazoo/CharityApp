@@ -56,6 +56,11 @@ public class TokensController {
         return "messages/activationFailure";
     }
 
+    @GetMapping("/blocked")
+    public String accountBlocked() {
+        return "messages/accountBlocked";
+    }
+
     @GetMapping("/resetPassword/{token}")
     public String reset(@PathVariable String token, Model model) {
 

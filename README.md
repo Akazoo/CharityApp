@@ -18,15 +18,14 @@ Features:
 2. Contact form.
 3. User registration with password and email validation.
 4. Add donation form available after logging in.
+5. Your own account with donation list and settings.
+6. Administrator account and management panel for donations, administrators, foundations and users.
+7. Forgotten passwords reset.
 
 - In the nearest future:
 
-1. Your own account with donation list and settings.
-2. Administrator account and management panel for donations, administrators, foundations and users.
-3. Forgotten passwords reset.
-4. Additional translation file for English language.
-5. Donations archiving.
-6. Email messages sent to users regarding changes of their accounts or application updates.
+1. Additional translation file for English language.
+2. Email messages sent to users regarding changes of their accounts or application updates.
 
 Polish transcription :
 
@@ -45,18 +44,17 @@ Funkcjonalności:
 
 - Aktualne:
 
-1. Mail z linkiem aktywacyjnym do potwierdzenia konta.
+1. Potwierdzenia konta poprzez link aktywacyjny wysyłany na adres email.
 2. Formularz kontaktowy.
 3. Rejestracja użytkownika z walidacja hasła oraz maila.
 4. Formularz dodania donacji dostępny po zalogowaniu.
+5. Własne konto z listą donacji oraz ustawieniami.
+6. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami.
+7. Resetowanie zapomnianych haseł.
 
 - Planowane:
 
-1. Własne konto z listą donacji oraz ustawieniami.
-2. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami.
-3. Resetowanie zapomnianych haseł.
-4. Dodatkowy plik tłumaczeniowy dla języka angielskiego.
-5. Przekazywanie(archiwizacja) darów.
-6. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
-7. Logownie. roliing files/pliki
-8. Block ograniczenia
+1. Dodatkowy plik tłumaczeniowy dla języka angielskiego.
+2. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
+3. Logowanie. roliing files/pliki
+4. sprawdzanie za kazdym razem statusu konta - aktywne nieaktywne, przy wroceniu jakby zalogowany
