@@ -12,8 +12,11 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
     <div class="slogan container container--90">
         <h2>
-            Twoje konto zostało aktywowane.<br/>
-            Możesz korzystać już ze wszystkich opcji portalu.
+            Twoje konto zostało aktywowane.<br>
+            Możesz korzystać już ze wszystkich opcji portalu.<br>
+            <br>
+            Your account has been activated.<br>
+            You can now use all portal options.
         </h2>
     </div>
 </header>

@@ -11,7 +11,7 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Użytkownicy</h2>
+        <h2 class="account-header"><spring:message code="admin.users"/></h2>
 
         <div class="one-object tableA" style="overflow: auto">
             <table border="1" frame="hsides" rules="rows">
@@ -19,10 +19,10 @@
                 <tr>
                     <th>Id</th>
                     <th>Email</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Status Konta</th>
-                    <th>Dostępne akcje</th>
+                    <th><spring:message code="form.name"/></th>
+                    <th><spring:message code="form.lastname"/></th>
+                    <th><spring:message code="admin.accountStatus"/></th>
+                    <th><spring:message code="admin.actions"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,10 +36,10 @@
                         <td>
                         <span>
                             <c:if test="${user.id !=1}">
-                        <input type="button" class="btn btn--without-border" value="Edytuj" onClick="location.href = '/admin/users/edit/' + ${user.id}">
-                        <input type="button" class="btn btn--without-border deleteUserButton"  id="${user.id}" value="Usuń"/>
-                        <input type="button" class="btn btn--without-border blockUserButton" id="${user.id}"  value="Zablokuj/Oblokuj"/>
-                        <input type="button" class="btn btn--without-border elevateUserButton" id="${user.id}" value="Nadaj uprawnienia"/>
+                        <input type="button" class="btn btn--without-border" value="<spring:message code="general.edit.end"/>" onClick="location.href = '/admin/users/edit/' + ${user.id}">
+                        <input type="button" class="btn btn--without-border deleteUserButton"  id="${user.id}" value="<spring:message code="general.delete"/>"/>
+                        <input type="button" class="btn btn--without-border blockUserButton" id="${user.id}"  value="<spring:message code="admin.block"/>"/>
+                        <input type="button" class="btn btn--without-border elevateUserButton" id="${user.id}" value="<spring:message code="admin.grant"/>"/>
                             </c:if>
                         </span>
                         </td>

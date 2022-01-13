@@ -13,7 +13,10 @@
     <div class="slogan container container--90">
         <h2>
             Dziękujemy za kontakt z Nami.<br/>
-            Spróbujemy odpowiedzieć tak szybko jak będzie to możliwe.
+            Spróbujemy odpowiedzieć tak szybko jak będzie to możliwe.<br>
+            <br>
+            Thank you for contacting us.<br/>
+            We will try to reply as soon as possible.
         </h2>
     </div>
 </header>

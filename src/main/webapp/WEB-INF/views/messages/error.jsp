@@ -13,8 +13,11 @@
     <div class="slogan container container--90">
         <h2>
             Ups !
-            Wystąpił nieoczekiwany błąd. <br/>
-            Przepraszamy za niedogodności.
+            Wystąpił nieoczekiwany błąd.<br/>
+            Przepraszamy za niedogodności.<br>
+            <br>
+            An unexpected error has occurred.<br/>
+            We apologize for the inconvenience.<br>
         </h2>
     </div>
 </header>

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
+import pl.akazoo.CharityApp.domain.Helpers.Helpers;
 import pl.akazoo.CharityApp.domain.dto.ContactMessage;
 import pl.akazoo.CharityApp.domain.model.User;
 
@@ -15,6 +16,7 @@ public class EmailService {
     @Value("${charity.app.company.email}")
     private String companyMail;
     private final JavaMailSender javaMailSender;
+    private final Helpers helpers;
 
     public void sendContactMessage(ContactMessage contactMessage) {
         SimpleMailMessage message = new SimpleMailMessage();
@@ -52,19 +54,21 @@ public class EmailService {
     }
 
     public void sendActivationToken(User user){
+        String lang = helpers.getCurrentLanguage();
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(companyMail);
         message.setTo(user.getEmail());
-        message.setSubject("Potwierdź swoje konto na portalu \"Dobre Ręce\"");
+        message.setSubject("Potwierdź swoje konto na portalu \"Dobre Ręce\""+lang);
         message.setText(buildActivationMessage(user));
         javaMailSender.send(message);
     }
 
     public String buildForgottenPassMessage(User user){
+        String lang = helpers.getCurrentLanguage();
         return "Aby zmienić hasło wejdź proszę w podany link: \n\n"
                 +"http://localhost:8080/tokens/resetPassword/" + user.getResetPasswordToken() + "\n\n" +
                 "Token jest jednorazowy." + "\n" +
-                "Dziękujemy za Twoj udział w naszej akcji :)\nZespół \"Dobre Ręce\"";
+                "Dziękujemy za Twoj udział w naszej akcji :)\nZespół \"Dobre Ręce\"" +lang;
     }
 
     public void sendForgottenPassMessage(User user){

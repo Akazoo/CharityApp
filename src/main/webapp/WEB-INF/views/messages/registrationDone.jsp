@@ -12,8 +12,11 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
     <div class="slogan container container--90">
         <h2>
-            Dziękujemy za założenie konta na naszej stronie.<br/>
-            Na Twój adres email został wysłany link aktywacyjny.
+            Dziękujemy za założenie konta na naszej stronie.<br>
+            Na Twój adres email został wysłany link aktywacyjny.<br>
+            <br>
+            Thank you for creating an account on our site.<br>
+            An activation link has been sent to your email address.
         </h2>
     </div>
 </header>

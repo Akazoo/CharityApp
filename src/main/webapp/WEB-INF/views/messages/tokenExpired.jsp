@@ -12,8 +12,11 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
     <div class="slogan container container--90">
         <h2>
-            Podany link aktywacyjny stracił ważność.<br/>
-            Nowy kod został wysłany.
+            Podany link aktywacyjny stracił ważność.<br>
+            Nowy kod został wysłany.<br>
+            <br>
+            The activation link provided is no longer valid.<br>
+            New code has been sent.
         </h2>
     </div>
 </header>

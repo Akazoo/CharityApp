@@ -12,9 +12,13 @@
     <%@include file="/WEB-INF/pageParts/header.jsp"%>
     <div class="slogan container container--90">
         <h2>
-            Token został pomyślnie wygenereowany.<br/>
+            Token został pomyślnie wygenerowany.<br/>
             Na maila prześlemy wszelkie
-            informacje odnośnie zmiany hasła.
+            informacje odnośnie zmiany hasła.<br>
+            <br>
+            The token has been successfully generated.<br/>
+            We will send you an e-mail with all
+            information on how to change your password.
         </h2>
     </div>
 </header>

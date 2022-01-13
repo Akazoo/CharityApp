@@ -1,30 +1,17 @@
 package pl.akazoo.CharityApp.web;
 
 import lombok.RequiredArgsConstructor;
-import org.aspectj.asm.IModelFilter;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.akazoo.CharityApp.domain.converter.Converter;
-import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
-import pl.akazoo.CharityApp.domain.dto.InstitutionEdit;
-import pl.akazoo.CharityApp.domain.dto.PasswordChanger;
-import pl.akazoo.CharityApp.domain.dto.UserEdit;
 import pl.akazoo.CharityApp.domain.model.Category;
-import pl.akazoo.CharityApp.domain.model.Institution;
-import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.DonationService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 import pl.akazoo.CharityApp.service.UserService;
 
-import javax.validation.Valid;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")

@@ -1,4 +1,4 @@
-package pl.akazoo.CharityApp.domain.converter;
+package pl.akazoo.CharityApp.domain.Helpers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

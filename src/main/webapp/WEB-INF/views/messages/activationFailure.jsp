@@ -13,7 +13,7 @@
         <h2 class="header--logo">Dobre Ręce</h2>
         <nav class="container container--70 header--nav">
             <ul>
-                <li><a href="/logout" class="btn btn--without-border">Wyloguj</a></li>
+                <li><a href="/logout" class="btn btn--without-border"><spring:message code="general.logOut"/></a></li>
             </ul>
         </nav>
     </div>
@@ -22,7 +22,10 @@
         <div class="slogan--item">
             <h1>
                 Aby móc korzystać ze swojego konta musisz je aktywować.<br>
-                Link aktywacyjny został wysłany na podany przy rejestracji adres email.
+                Link aktywacyjny został wysłany na podany przy rejestracji adres email.<br>
+                <br>
+                You must activate your account first.<br>.
+                The activation link has been sent to the email address you provided during registration.
             </h1>
         </div>
     </div>

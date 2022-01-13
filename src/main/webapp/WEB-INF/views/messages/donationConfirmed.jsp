@@ -14,7 +14,11 @@
         <h2>
             Dziękujemy za przesłanie formularza.<br/>
             Na maila prześlemy wszelkie
-            informacje odnośnie odbioru.
+            informacje odnośnie odbioru.<br>
+            <br>
+            Thank you for submitting the form.<br/>
+            We will send all
+            information related to the collection.
         </h2>
     </div>
 </header>

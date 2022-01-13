@@ -12,8 +12,8 @@
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
         <h2 class="account-header">
-            <sec:authorize access="hasRole('ADMIN')">Darowizny</sec:authorize>
-            <sec:authorize access="hasRole('USER')">Twoje darowizny</sec:authorize>
+            <sec:authorize access="hasRole('ADMIN')"><spring:message code="admin.collections"/></sec:authorize>
+            <sec:authorize access="hasRole('USER')"><spring:message code="general.collections"/></sec:authorize>
         </h2>
 
         <div class="one-object tableA overflow-auto">
@@ -21,13 +21,13 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Data stworzenia</th>
-                    <th>Status</th>
-                    <th>Zmiana statusu</th>
+                    <th><spring:message code="general.collections"/></th>
+                    <th><spring:message code="general.collections"/></th>
+                    <th><spring:message code="general.collections"/></th>
                     <sec:authorize access="hasRole('ADMIN')">
-                        <th>Użytkownik</th>
+                        <th><spring:message code="general.user"/></th>
                     </sec:authorize>
-                    <th>Dostępne akcje</th>
+                    <th><spring:message code="admin.actions"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,9 +41,9 @@
                             <td>${donation.user.email}</td>
                             <td>
                             <span>
-                            <input type="button" class="btn btn--without-border" value="Szczegóły"
+                            <input type="button" class="btn btn--without-border" value="<spring:message code="general.details"/>"
                                    onClick="location.href='/donation/${donation.id}'">
-                                <input type="button" class="btn btn--without-border deleteDonationButton" value="Usuń"
+                                <input type="button" class="btn btn--without-border deleteDonationButton" value="<spring:message code="general.delete"/>"
                                        id="${donation.id}"/>
                             </span>
                             </td>
@@ -51,12 +51,12 @@
                         <sec:authorize access="hasRole('USER')">
                             <td>
                             <span>
-                            <input type="button" class="btn btn--without-border" value="Szczegóły"
+                            <input type="button" class="btn btn--without-border" value="<spring:message code="general.details"/>"
                                    onClick="location.href='/donation/${donation.id}'">
                             <c:if test="${donation.status == 'created'}">
-                                <input type="button" class="btn btn--without-border deleteDonationButton" value="Usuń"
+                                <input type="button" class="btn btn--without-border deleteDonationButton" value="<spring:message code="general.delete"/>"
                                        id="${donation.id}"/>
-                                <input type="button" class="btn btn--without-border confirmDonationButton" value="Potwierdź"
+                                <input type="button" class="btn btn--without-border confirmDonationButton" value="<spring:message code="general.confirm"/>"
                                        id="${donation.id}"/>
                             </c:if>
                             </span>

@@ -19,8 +19,8 @@
                 <tr>
                     <th>Id</th>
                     <th>Email</th>
-                    <th><spring:message code="admin.firstName"/></th>
-                    <th><spring:message code="admin.lastName"/></th>
+                    <th><spring:message code="form.name"/></th>
+                    <th><spring:message code="form.lastname"/></th>
                     <th><spring:message code="admin.accountStatus"/></th>
                     <th><spring:message code="admin.actions"/></th>
                 </tr>

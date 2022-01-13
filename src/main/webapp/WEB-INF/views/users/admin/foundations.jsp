@@ -11,16 +11,16 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Fundacje</h2>
+        <h2 class="account-header"><spring:message code="admin.foundations"/></h2>
 
         <div class="one-object tableA" style="overflow: auto">
             <table border="1" frame="hsides" rules="rows">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Nazwa</th>
-                    <th>Opis</th>
-                    <th>Dostępne akcje</th>
+                    <th><spring:message code="admin.name"/></th>
+                    <th><spring:message code="admin.description"/></th>
+                    <th><spring:message code="admin.actions"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,10 +32,10 @@
                         <td>
                         <span>
                               <c:if test="${institution.id !=1}">
-                                  <input type="button" class="btn btn--without-border" value="Edytuj"
+                                  <input type="button" class="btn btn--without-border" value="<spring:message code="general.edit.end"/>"
                                          onClick="location.href = '/admin/foundations/edit/' + ${institution.id}">
                                   <input type="button" class="btn btn--without-border deleteFoundationButton"
-                                         id="${institution.id}" value="Usuń"/>
+                                         id="${institution.id}" value="<spring:message code="general.delete"/>"/>
                               </c:if>
                         </span>
                         </td>
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="form-group--buttons " style="margin-left: 16%">
-        <a href="/admin/foundations/add" class="btn btn--without-border">Dodaj fundację</a>
+        <a href="/admin/foundations/add" class="btn btn--without-border"><spring:message code="admin.addFoundation"/></a>
     </div>
 </header>
 <footer>

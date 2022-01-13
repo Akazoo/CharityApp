@@ -13,6 +13,8 @@
     <div class="slogan container container--90">
         <h2>
             Kod aktywacyjny jest niepoprawny.<br/>
+            <br>
+            Activation code is incorrect.
         </h2>
     </div>
 </header>

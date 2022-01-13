@@ -32,8 +32,8 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 
     private String checkAccountActivation() {
         User user = userService.getLoggedUser();
-        if (user.getAccountConfirmation().equals("confirmed")) return "/tokens/failure";
-        if (user.getAccountConfirmation().equals("blocked"))  return "/tokens/blocked";
+        if (user.getAccountConfirmation().equals("waiting")) return "/tokens/failure";
+        if (user.getAccountConfirmation().equals("blocked")) return "/tokens/blocked";
         return "/";
     }
 }

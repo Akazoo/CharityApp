@@ -13,7 +13,7 @@
         <h2 class="header--logo">Dobre Ręce</h2>
         <nav class="container container--70 header--nav">
             <ul>
-                <li><a href="/logout" class="btn btn--without-border">Wyloguj</a></li>
+                <li><a href="/logout" class="btn btn--without-border"><spring:message code="general.logOut"/></a></li>
             </ul>
         </nav>
     </div>
@@ -22,7 +22,10 @@
         <div class="slogan--item">
             <h1>
                 Twoje konto zostało zablokowane.<br>
-                Aby otrzymać więcej informacji skorzystaj proszę z formularza kontaktowego.
+                Aby otrzymać więcej informacji skorzystaj proszę z formularza kontaktowego.<br>
+                <br>
+                Your account has been blocked.<br>.
+                For more information, please use the contact form.
             </h1>
         </div>
     </div>
