@@ -10,28 +10,28 @@ import java.util.List;
 @Data
 public class DonationAdd {
 
-    @NotNull(message = "To pole nie może pozostać puste.")
+    @NotNull(message = "{general.notEmpty}")
     private Integer quantity;
-    @NotEmpty(message = "Wybierz jedna lub więcej kategorii.")
+    @NotEmpty(message = "{category.notEmpty}")
     private List<Long> categories;
-    @NotNull(message = "Proszę wybrać instytucję.")
+    @NotNull(message = "{institution.notEmpty}")
     private Long institution;
-    @NotBlank(message = "To pole nie może pozostać puste.")
+    @NotBlank(message = "{general.notEmpty}")
     private String street;
-    @NotBlank(message = "To pole nie może pozostać puste.")
+    @NotBlank(message = "{general.notEmpty}")
     private String city;
-    @NotBlank(message = "To pole nie może pozostać puste.")
-    @Pattern(regexp = "[0-9]{2}-[0-9]{3}", message = "Poprawny format kodu to xx-xxx")
+    @NotBlank(message = "{general.notEmpty}")
+    @Pattern(regexp = "[0-9]{2}-[0-9]{3}", message = "{zipCode.correct}")
     private String zipCode;
-    @NotNull(message = "To pole nie może pozostać puste.")
-    @Future(message = "Data nie może być z przeszłości.")
+    @NotNull(message = "{general.notEmpty}")
+    @Future(message = "{date.correct}")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate pickUpDate;
-    @NotNull(message = "To pole nie może pozostać puste.")
+    @NotNull(message = "{general.notEmpty}")
     private LocalTime pickUpTime;
-    @Size(max = 255, message = "Maksymalna długość znaków to 255")
+    @Size(max = 255, message = "{size.255}")
     private String pickUpComment;
-    @NotBlank(message = "To pole nie może pozostać puste.")
-    @Pattern(regexp = "\\+[0-9]{2,5} [0-9]{9}", message = "Poprawny format telefonu to to +xx xxxxxxxxx")
+    @NotBlank(message = "{general.notEmpty}")
+    @Pattern(regexp = "\\+[0-9]{2,5} [0-9]{9}", message = "{phone.correct}")
     private String phoneNumber;
 }

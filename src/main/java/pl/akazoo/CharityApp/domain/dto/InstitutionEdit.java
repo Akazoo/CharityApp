@@ -8,12 +8,12 @@ import javax.validation.constraints.Size;
 @Data
 public class InstitutionEdit {
 
-    @NotNull
+    @NotNull(message = "{general.notEmpty}")
     private Long id;
-    @Size(max = 50)
-    @NotBlank
+    @Size(max = 50, message = "{size.50}")
+    @NotBlank(message = "{general.notEmpty}")
     private String name;
-    @Size(max = 100)
-    @NotBlank
+    @Size(max = 100, message = "{size.100}")
+    @NotBlank(message = "{general.notEmpty}")
     private String description;
 }

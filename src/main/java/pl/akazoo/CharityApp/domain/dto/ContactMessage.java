@@ -11,11 +11,11 @@ import javax.validation.constraints.NotBlank;
 @ToString
 public class ContactMessage {
 
-    @NotBlank
+    @NotBlank(message = "{general.notEmpty}")
     private String text;
-    @NotBlank
+    @NotBlank(message = "{general.notEmpty}")
     private String firstName;
-    @NotBlank
-    @Email
+    @NotBlank(message = "{general.notEmpty}")
+    @Email(message = "{email.correct}")
     private String responseMail;
 }

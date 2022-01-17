@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class PasswordReminder {
 
-    @NotBlank(message = "To pole nie może być puste.")
-    @Email(message = "Wprowadź proszę poprawny email.")
+    @NotBlank(message = "{general.notEmpty}")
+    @Email(message = "{email.correct}")
     private String email;
 }

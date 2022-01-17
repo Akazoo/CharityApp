@@ -8,9 +8,9 @@ import javax.validation.constraints.Size;
 @Data
 public class CategoryEdit {
 
-    @NotNull(message = "{}")
+    @NotNull(message = "{general.notEmpty}")
     private Long id;
-    @Size(max = 50)
-    @NotBlank
+    @Size(max = 50, message = "{size.50}")
+    @NotBlank(message = "{general.notEmpty}")
     private String name;
 }

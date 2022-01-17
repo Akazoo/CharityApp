@@ -8,11 +8,11 @@ import javax.validation.constraints.Pattern;
 @Data
 public class PasswordChanger {
 
-    @NotBlank(message = "To pole nie może być puste.")
-    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "Hasło musi zawierać conajmniej jedna wielka,mała literę, cyfrę oraz znak specjalny. Minimum 8 znaków.")
+    @NotBlank(message = "{general.notEmpty}")
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "{password.correct}")
     private String password;
-    @NotBlank(message = "To pole nie może być puste.")
+    @NotBlank(message = "{general.notEmpty}")
     private String password2;
-    @NotBlank
+    @NotBlank(message = "{general.notEmpty}")
     private String email;
 }

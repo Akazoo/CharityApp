@@ -6,9 +6,9 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class UserEdit {
 
-    @NotBlank(message = "To pole nie może być puste.")
+    @NotBlank(message = "{general.notEmpty}")
     private String firstName;
-    @NotBlank(message = "To pole nie może być puste.")
+    @NotBlank(message = "{general.notEmpty}")
     private String lastName;
     private Long id;
 }
