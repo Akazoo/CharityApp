@@ -9,7 +9,7 @@ import javax.validation.constraints.Pattern;
 public class UserAdd {
 
     @NotBlank(message = "{general.notEmpty}")
-    @Email(message = "{email.correct")
+    @Email(message = "{email.correct}")
     private String email;
     @NotBlank(message = "{general.notEmpty}")
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "{password.correct}")

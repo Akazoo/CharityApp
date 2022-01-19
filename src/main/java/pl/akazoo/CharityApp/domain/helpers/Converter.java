@@ -1,4 +1,4 @@
-package pl.akazoo.CharityApp.domain.Helpers;
+package pl.akazoo.CharityApp.domain.helpers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

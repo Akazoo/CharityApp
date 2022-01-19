@@ -9,6 +9,6 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Dobre Ręce</title>
+    <title><spring:message code="general.goodHands"/></title>
     <link rel="Shortcut icon" href="<c:url value="/resources/images/pexels-pixabay-264907.jpg"/>" />
     <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"/>

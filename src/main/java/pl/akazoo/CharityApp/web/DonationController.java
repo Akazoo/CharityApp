@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.akazoo.CharityApp.domain.Helpers.Converter;
+import pl.akazoo.CharityApp.domain.helpers.Converter;
 import pl.akazoo.CharityApp.domain.dto.DonationAdd;
 import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.domain.model.Donation;

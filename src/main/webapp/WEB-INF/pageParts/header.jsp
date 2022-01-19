@@ -7,7 +7,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
     <div class="header--top">
-        <h2 class="header--logo">Dobre Ręce</h2>
+        <h2 class="header--logo"><spring:message code="general.goodHands"/></h2>
         <nav class="container container--70 header--nav" style="margin-right: 20px">
             <ul class="nav--actions">
 

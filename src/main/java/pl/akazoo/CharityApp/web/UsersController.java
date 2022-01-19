@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.akazoo.CharityApp.domain.Helpers.Converter;
+import pl.akazoo.CharityApp.domain.helpers.Converter;
 import pl.akazoo.CharityApp.domain.dto.UserEdit;
 import pl.akazoo.CharityApp.domain.model.User;
 import pl.akazoo.CharityApp.service.DonationService;
