@@ -1,11 +1,18 @@
-[confirmationMail]
-
+[contactMail]
+Mam pytanie odnośnie aplikacji "Dobre Ręce"
+Pytanie od
+Odpowiedż proszę przesłać na adres:
+Twoje zapytanie odnośnie aplikacji "Dobre Ręce"
 [forgottenPassword]
 Przypomnienie hasła na portalu "Dobre Ręce"
 Aby zmienić hasło wejdź proszę w podany link:
 Token jest jednorazowy.
-Dziękujemy za Twoj udział w naszej akcji :)
+Dziękujemy za Twój udział w naszej akcji :)
 Zespół "Dobre Ręce"
 [activationMessage]
-
-[end]
+Potwierdź swoje konto na portalu "Dobre Ręce"
+Aby aktywować konto wejdź proszę w podany link:
+Link ważny jest przez 7 dni od daty rejestracji.
+Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email.
+Dziękujemy za Twoj udział w naszej akcji :)
+Zespół "Dobre Ręce"

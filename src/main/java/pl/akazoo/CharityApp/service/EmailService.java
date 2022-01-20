@@ -22,45 +22,48 @@ public class EmailService {
 
     public void sendContactMessage(ContactMessage contactMessage) {
         SimpleMailMessage message = new SimpleMailMessage();
+        List<String> mailContent = helpers.getMailContent("contactMail");
         message.setFrom(companyMail);
         message.setTo(companyMail);
-        String subject = "Mam pytanie odnośnie aplikacji \"Dobre Ręce\"";
+        String subject = mailContent.get(0);
         message.setSubject(subject);
-        message.setText(buildContactMessage(contactMessage));
+        String readyContactMessage = buildContactMessage(contactMessage, mailContent);
+        message.setText(readyContactMessage);
         javaMailSender.send(message);
-        sendConfirmationContact(contactMessage);
+        sendConfirmationContact(contactMessage.getResponseMail(), mailContent.get(3), readyContactMessage);
     }
 
-    private void sendConfirmationContact(ContactMessage contactMessage) {
+    private void sendConfirmationContact(String sendTo, String subject, String mailText) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(companyMail);
-        message.setTo(contactMessage.getResponseMail());
-        String subject = "Twoje zapytanie odnośnie aplikacji \"Dobre Ręce\"";
+        message.setTo(sendTo);
         message.setSubject(subject);
-        message.setText(buildContactMessage(contactMessage));
+        message.setText(mailText);
         javaMailSender.send(message);
     }
 
-    private String buildContactMessage(ContactMessage contactMessage) {
-        return "Pytanie od " + contactMessage.getFirstName() + " :\n"
-                + contactMessage.getText() + "\n" +
-                "Odpowiedż proszę przesłać na adres :" + contactMessage.getResponseMail();
+    private String buildContactMessage(ContactMessage contactMessage, List<String> mailContent) {
+        return mailContent.get(1) + " " + contactMessage.getFirstName() + " :\n"
+                + contactMessage.getText() + "\n"
+                + mailContent.get(2) + " " + contactMessage.getResponseMail();
     }
 
-    private String buildActivationMessage(User user) {
-        return "Aby aktywować konto wejdź proszę w podany link: \n\n"
+    private String buildActivationMessage(User user, List<String> mailContent) {
+        return mailContent.get(1) + "\n\n"
                 + "http://localhost:8080/tokens/activation/" + user.getActivationToken() + "\n\n" +
-                "Link ważny jest przez 7 dni od daty rejestracji.\n" +
-                "Po tym okresie podczas wejścia na podaną stronę zostanie wygenerowany nowy email.\n" +
-                "Dziękujemy za Twoj udział w naszej akcji :)\nZespół \"Dobre Ręce\"";
+                mailContent.get(2) + "\n" +
+                mailContent.get(3) + "\n" +
+                mailContent.get(4) + "\n" +
+                mailContent.get(5);
     }
 
     public void sendActivationToken(User user) {
         SimpleMailMessage message = new SimpleMailMessage();
+        List<String> mailContent = helpers.getMailContent("activationMessage");
         message.setFrom(companyMail);
         message.setTo(user.getEmail());
-        message.setSubject("Potwierdź swoje konto na portalu \"Dobre Ręce\"");
-        message.setText(buildActivationMessage(user));
+        message.setSubject(mailContent.get(0));
+        message.setText(buildActivationMessage(user,mailContent));
         javaMailSender.send(message);
     }
 

@@ -59,7 +59,7 @@ public class DataInput {
             userService.add(user0);
 
             User user = new User();
-            user.setEmail("aa");
+            user.setEmail("akazoo@interia.pl");
             user.setPassword(passwordEncoder.encode("aa"));
             user.setRole("ROLE_ADMIN");
             user.setAccountConfirmation("confirmed");

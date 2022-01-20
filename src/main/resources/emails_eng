@@ -1,11 +1,18 @@
-[confirmationMail]
-
+[contactMail]
+I have a question about the "Good Hands" app
+Question from
+Please send your answer to:
+Your question about "Good Hands" application
 [forgottenPassword]
 Password reminder for "Good Hands" portal
-To change your password please go to the link provided:
-The token is one time only.
+In order to change your password please enter provided link:
+Token is one time only.
 Thank you for your participation in our action :)
 "Good Hands" team
 [activationMessage]
-
-[end]
+Confirm your account on "Good Hands" portal
+In order to activate your account please enter provided link:
+Link is valid for 7 days from the date of registration.
+After this period, a new email will be generated when entering the specified page.
+Thank you for your participation in our action :)
+"Good Hands" team
