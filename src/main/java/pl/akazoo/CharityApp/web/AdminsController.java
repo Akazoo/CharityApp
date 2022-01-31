@@ -17,12 +17,22 @@ public class AdminsController {
     private final UserService userService;
 
     @GetMapping("/demote/{id:\\d+}")
-    public String demotion(@PathVariable Long id, Model model) {
+    public String demotion(@PathVariable Long id) {
         User user = userService.getLoggedUser();
-        if (user.getId().equals(id) || userService.getNumberOfAdmins() <= 1) {
-            return "redirect:/admin/admins/badAction";
+        if (user.getId().equals(id)) {
+            return "redirect:/admin/admins/badAction/2";
+        }
+        if (userService.getNumberOfAdmins() <= 1) {
+            return "redirect:/admin/admins/badAction/1";
         }
         userService.demoteAdminToUser(id);
         return "redirect:/admin/admins";
+    }
+
+    @GetMapping("/badAction/{ip:\\d+}")
+    public String adminsBadAction(Model model, @PathVariable Long ip) {
+        model.addAttribute("admins", userService.getUsersByRole("ROLE_ADMIN"));
+        model.addAttribute("noAdmin",ip);
+        return "/users/admin/admins";
     }
 }

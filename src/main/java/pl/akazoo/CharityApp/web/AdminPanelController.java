@@ -35,13 +35,6 @@ public class AdminPanelController {
         return "/users/admin/admins";
     }
 
-    @GetMapping("/admins/badAction")
-    public String adminsBadAction(Model model) {
-        model.addAttribute("admins", userService.getUsersByRole("ROLE_ADMIN"));
-        model.addAttribute("noAdmin","Nie możesz zdegradować siebie <br> lub po wykonaniu tej akcji liczba administratorów będzie mniejsza niż 1.");
-        return "/users/admin/admins";
-    }
-
     @GetMapping("/foundations")
     public String foundations(Model model) {
         model.addAttribute("institutions", institutionService.getAll());

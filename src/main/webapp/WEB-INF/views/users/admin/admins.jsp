@@ -35,7 +35,8 @@
                         <td>${admin.accountConfirmation}</td>
                         <td>
                         <span>
-                        <input type="button" class="btn btn--without-border demoteButton" id="${admin.id}" value="<spring:message code="admin.degrade"/>"/>
+                        <input type="button" class="btn btn--without-border demoteButton" id="${admin.id}"
+                               value="<spring:message code="admin.degrade"/>"/>
                         </span>
                         </td>
                     </tr>
@@ -43,7 +44,12 @@
                 </tbody>
             </table>
             <form>
-            <p>${noAdmin}</p>
+                <c:if test="${noAdmin == 1}">
+                    <p><spring:message code="admin.degrade.message.count"/></p>
+                </c:if>
+                <c:if test="${noAdmin == 2}">
+                    <p><spring:message code="admin.degrade.message.own"/></p>
+                </c:if>
             </form>
         </div>
     </div>
