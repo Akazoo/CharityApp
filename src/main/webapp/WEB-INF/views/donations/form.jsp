@@ -6,41 +6,43 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <%@include file="/WEB-INF/pageParts/head.jsp"%>
+    <%@include file="/WEB-INF/pageParts/head.jsp" %>
 </head>
 <body>
 <header class="header--form-page">
-    <%@include file="/WEB-INF/pageParts/header.jsp"%>
+    <%@include file="/WEB-INF/pageParts/header.jsp" %>
 
-<div class="slogan container container--90">
-    <div class="slogan--item">
-        <h1>
-            <spring:message code="form.slogan.first"/><br/>
-            <span class="uppercase"><spring:message code="form.slogan.second"/></span>
-        </h1>
+    <div class="slogan container container--90">
+        <div class="slogan--item">
+            <h1>
+                <spring:message code="form.slogan.first"/><br/>
+                <span class="uppercase"><spring:message code="form.slogan.second"/></span>
+            </h1>
 
-        <div class="slogan--steps">
-            <div class="slogan--steps-title"><spring:message code="form.steps.slogan"/>:</div>
-            <ul class="slogan--steps-boxes">
-                <li>
-                    <div><em>1</em><span><spring:message code="form.steps.first"/></span></div>
-                </li>
-                <li>
-                    <div><em>2</em><span><spring:message code="form.steps.second"/></span></div>
-                </li>
-                <li>
-                    <div><em>3</em><span><spring:message code="form.steps.third"/></span></div>
-                </li>
-                <li>
-                    <div><em>4</em><span><spring:message code="form.steps.fourth"/></span></div>
-                </li>
-            </ul>
+            <div class="slogan--steps">
+                <div class="slogan--steps-title"><spring:message code="form.steps.slogan"/>:</div>
+                <ul class="slogan--steps-boxes">
+                    <li>
+                        <div><em>1</em><span><spring:message code="form.steps.first"/></span></div>
+                    </li>
+                    <li>
+                        <div><em>2</em><span><spring:message code="form.steps.second"/></span></div>
+                    </li>
+                    <li>
+                        <div><em>3</em><span><spring:message code="form.steps.third"/></span></div>
+                    </li>
+                    <li>
+                        <div><em>4</em><span><spring:message code="form.steps.fourth"/></span></div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
     <div class="form-error">
-        <p>${error}</p>
-        <p>${error1}</p>
+        <c:if test="${error == '1'}">
+            <p><spring:message code="form.error.message.first"/></p>
+            <p><spring:message code="form.error.message.second"/></p>
+        </c:if>
     </div>
 </header>
 
@@ -119,7 +121,8 @@
                             <form:radiobutton path="institution" class="spa" value="${inst.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
-                                <div class="title"><spring:message code="index.help.foundation"/> <div id="instr">“${inst.name}”</div></div>
+                                <div class="title"><spring:message code="index.help.foundation"/> <div
+                                        id="instr">“${inst.name}”</div></div>
                         <div class="subtitle">
                             <spring:message code="index.help.goal"/> : ${inst.description}
                         </div>
@@ -257,6 +260,6 @@
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>

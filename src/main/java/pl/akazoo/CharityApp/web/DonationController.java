@@ -38,8 +38,7 @@ public class DonationController {
     @PostMapping("/donate/completed")
     public String donateCompleted(@Valid DonationAdd donationAdd, BindingResult bindingResult,Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("error","Formularz nie został przyjęty ponieważ zawiera błędy.");
-            model.addAttribute("error1", "Popraw je proszę i spróbuj ponownie.");
+            model.addAttribute("error","1");
             return "donations/form";
         }
         Donation donation = converter.donationAddToDonation(donationAdd);

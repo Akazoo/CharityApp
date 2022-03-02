@@ -179,13 +179,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 checkboxes.forEach((input, idx) => {
                         inputs += "- " + input.parentElement.lastElementChild.textContent + ",<br/>";
                 });
-                bagsResult.innerHTML = bags.value + " worek/worków : <br/>" + inputs;
+                bagsResult.innerHTML = bags.value + " worków/bags : <br/>" + inputs;
 
                 radios.forEach((radio, idx) => {
-                        radiosResult.innerHTML = "Dla fundacji " + radio.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
+                        radiosResult.innerHTML = "Dla fundacji/For " + radio.nextElementSibling.nextElementSibling.firstElementChild.firstElementChild.innerHTML;
                 });
                 addressResult.innerHTML = `
-                <h4>Adres odbioru:</h4>
+                <h4>Adres odbioru/Address:</h4>
                        <ul>
                            <li>` + address[0].value + `</li>
                            <li>` + address[1].value + `</li>
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 `;
                 timeResult.innerHTML = `
-                <h4>Termin odbioru:</h4>
+                <h4>Termin odbioru/Date:</h4>
                        <ul>
                             <li>` + time[0].value + `</li>
                             <li>` + time[1].value + `</li>

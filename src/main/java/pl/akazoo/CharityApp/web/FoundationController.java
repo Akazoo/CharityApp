@@ -47,7 +47,7 @@ public class FoundationController {
         }
         if (institutionService.existsByName(institutionEdit.getName())){
             if(!institutionService.getById(institutionEdit.getId()).getName().equals(institutionEdit.getName())) {
-                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
+                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta/Name already in use.");
                 return "foundations/edit";
             }
         }
@@ -68,7 +68,7 @@ public class FoundationController {
             return "foundations/add";
         }
         if (institutionService.existsByName(institutionAdd.getName())) {
-            bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
+            bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta/Name already in use.");
             return "foundations/add";
         }
         Institution institution = converter.institutionAddToInstitution(institutionAdd);

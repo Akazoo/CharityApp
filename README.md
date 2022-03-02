@@ -51,10 +51,10 @@ Funkcjonalności:
 5. Własne konto z listą donacji oraz ustawieniami.
 6. Konto administratora oraz panel zarządzania donacjami, administratorami, fundacjami oraz użytkownikami.
 7. Resetowanie zapomnianych haseł.
+8. Strona dostępna w języku polskim oraz angielskim.
+9. System logowania zdarzeń/akcji aplikacji.
 
 - Planowane:
 
-1. Dodatkowy plik tłumaczeniowy dla języka angielskiego.
 2. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
-3. Logowanie. roliing files/pliki
 4. sprawdzanie za kazdym razem statusu konta - aktywne nieaktywne, przy wroceniu jakby zalogowany

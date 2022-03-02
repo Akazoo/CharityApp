@@ -54,7 +54,7 @@ public class UserController {
             return "users/passwordChange";
         }
         if (!passwordChanger.getPassword().equals(passwordChanger.getPassword2())) {
-            bindingResult.rejectValue("password", null, "Hasła nie są takie same.");
+            bindingResult.rejectValue("password", null, "Hasła nie są takie same/Passwords are not identical.");
             return "users/passwordChange";
         }
         User user = userService.getUserByEmail(passwordChanger.getEmail());

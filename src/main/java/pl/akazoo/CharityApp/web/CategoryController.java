@@ -46,7 +46,7 @@ public class CategoryController {
         }
         if (categoryService.existsByName(categoryEdit.getName())){
             if(!categoryService.getById(categoryEdit.getId()).getName().equals(categoryEdit.getName())) {
-                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
+                bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta/Name already in use.");
                 return "categories/edit";
             }
         }
@@ -67,7 +67,7 @@ public class CategoryController {
             return "categories/add";
         }
         if (categoryService.existsByName(categoryAdd.getName())) {
-            bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta.");
+            bindingResult.rejectValue("name", null, "Podana nazwa jest już zajęta/Name already in use.");
             return "categories/add";
         }
         Category category = converter.categoryAddToCategory(categoryAdd);

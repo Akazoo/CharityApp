@@ -37,11 +37,11 @@ public class RegisterController {
             return "mainPage/register";
         }
         if (userService.exists(userAdd.getEmail())) {
-            bindingResult.rejectValue("email", null, "Podany adres email jest już w użyciu.");
+            bindingResult.rejectValue("email", null, "Podany adres email jest już w użyciu/Email already in use.");
             return "mainPage/register";
         }
         if (!userAdd.getPassword().equals(userAdd.getPassword2())) {
-            bindingResult.rejectValue("password", null, "Hasła nie są takie same.");
+            bindingResult.rejectValue("password", null, "Hasła nie są takie same/Passwords are not identical.");
             return "mainPage/register";
         }
         User user = converter.userAddToUser(userAdd);

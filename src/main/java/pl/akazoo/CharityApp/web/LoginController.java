@@ -40,7 +40,7 @@ public class LoginController {
             return "resetPassword/resetPasswordStart";
         }
         if(!userService.exists(passwordReminder.getEmail())){
-            bindingResult.rejectValue("email",null,"Użytkownik o podanym mailu nie istnieje.");
+            bindingResult.rejectValue("email",null,"Użytkownik o podanym mailu nie istnieje/User already exists.");
             return "resetPassword/resetPasswordStart";
         }
         User user = userService.getUserByEmail(passwordReminder.getEmail());
