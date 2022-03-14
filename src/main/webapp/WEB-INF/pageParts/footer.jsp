@@ -20,7 +20,7 @@
     </form:form>
 </div>
 <div class="bottom-line">
-    <span class="bottom-line--copy">Copyright &copy; 2021</span>
+    <span class="bottom-line--copy">Copyright &copy; 2022</span>
     <div class="bottom-line--icons">
         <a
                 href="https://www.linkedin.com/in/paweł-kucharski-akazoo"

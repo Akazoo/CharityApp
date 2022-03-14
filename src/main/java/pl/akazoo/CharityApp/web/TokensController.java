@@ -51,16 +51,6 @@ public class TokensController {
         return "messages/badToken";
     }
 
-    @GetMapping("/failure")
-    public String activationFailure() {
-        return "messages/activationFailure";
-    }
-
-    @GetMapping("/blocked")
-    public String accountBlocked() {
-        return "messages/accountBlocked";
-    }
-
     @GetMapping("/resetPassword/{token}")
     public String reset(@PathVariable String token, Model model) {
 
@@ -72,7 +62,6 @@ public class TokensController {
             model.addAttribute("passwordChanger",passwordChanger);
             return "resetPassword/passwordChange";
         }
-
         return "messages/badToken";
     }
 

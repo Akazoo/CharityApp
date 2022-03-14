@@ -10,7 +10,7 @@
 <body>
 <header class="header--main-page">
     <div class="header--top">
-        <h2 class="header--logo">Dobre Ręce</h2>
+        <h2 class="header--logo"><spring:message code="general.goodHands"/></h2>
         <nav class="container container--70 header--nav">
             <ul>
                 <li><a href="/logout" class="btn btn--without-border"><spring:message code="general.logOut"/></a></li>
