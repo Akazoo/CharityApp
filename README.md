@@ -21,11 +21,12 @@ Features:
 5. Your own account with donation list and settings.
 6. Administrator account and management panel for donations, administrators, foundations and users.
 7. Forgotten passwords reset.
+8. Website is available in Polish and English.
+9. Application event/action logging system.
 
 - In the nearest future:
 
-1. Additional translation file for English language.
-2. Email messages sent to users regarding changes of their accounts or application updates.
+1. Email messages sent to users regarding changes of their accounts or application updates.
 
 Polish transcription :
 
@@ -56,5 +57,5 @@ Funkcjonalności:
 
 - Planowane:
 
-2. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
-4. sprawdzanie za kazdym razem statusu konta - aktywne nieaktywne, przy wroceniu jakby zalogowany
+1. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
+2. sprawdzanie za kazdym razem statusu konta - aktywne nieaktywne, przy wroceniu jakby zalogowany
