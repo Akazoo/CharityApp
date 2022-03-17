@@ -14,6 +14,8 @@ import pl.akazoo.CharityApp.domain.dto.CategoryEdit;
 import pl.akazoo.CharityApp.domain.model.Category;
 import pl.akazoo.CharityApp.service.CategoryService;
 import pl.akazoo.CharityApp.service.DonationService;
+import pl.akazoo.CharityApp.service.EmailService;
+
 import javax.validation.Valid;
 
 @Controller
@@ -24,11 +26,13 @@ public class CategoryController {
     private final CategoryService categoryService;
     private final DonationService donationService;
     private final Converter converter;
+    private final EmailService emailService;
 
     @GetMapping("/delete/{id:\\d+}")
     public String deleteCategory(@PathVariable Long id) {
         donationService.changeCategoryToNoneByCategoryId(id);
         categoryService.delete(id);
+        emailService.sendUpdateToAllUsers("Kategorie/Categories");
         return "redirect:/admin/categories";
     }
 
@@ -52,6 +56,7 @@ public class CategoryController {
         }
         Category category= converter.categoryEditToCategory(categoryEdit);
         categoryService.add(category);
+        emailService.sendUpdateToAllUsers("Kategorie/Categories");
         return "redirect:/admin/categories";
     }
 
@@ -72,6 +77,7 @@ public class CategoryController {
         }
         Category category = converter.categoryAddToCategory(categoryAdd);
         categoryService.add(category);
+        emailService.sendUpdateToAllUsers("Kategorie/Categories");
         return "redirect:/admin/categories";
     }
 }

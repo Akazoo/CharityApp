@@ -21,9 +21,9 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th><spring:message code="general.collections"/></th>
-                    <th><spring:message code="general.collections"/></th>
-                    <th><spring:message code="general.collections"/></th>
+                    <th><spring:message code="general.creation.date"/></th>
+                    <th><spring:message code="general.status"/></th>
+                    <th><spring:message code="general.change.date"/></th>
                     <sec:authorize access="hasRole('ADMIN')">
                         <th><spring:message code="general.user"/></th>
                     </sec:authorize>

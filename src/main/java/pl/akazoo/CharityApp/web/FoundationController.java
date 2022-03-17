@@ -13,6 +13,7 @@ import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
 import pl.akazoo.CharityApp.domain.dto.InstitutionEdit;
 import pl.akazoo.CharityApp.domain.model.Institution;
 import pl.akazoo.CharityApp.service.DonationService;
+import pl.akazoo.CharityApp.service.EmailService;
 import pl.akazoo.CharityApp.service.InstitutionService;
 
 import javax.validation.Valid;
@@ -25,11 +26,13 @@ public class FoundationController {
     private final DonationService donationService;
     private final InstitutionService institutionService;
     private final Converter converter;
+    private final EmailService emailService;
 
     @GetMapping("/delete/{id:\\d+}")
     public String deleteFoundation(@PathVariable Long id) {
         donationService.changeInstitutionToNoneByInstitutionId(id);
         institutionService.delete(id);
+        emailService.sendUpdateToAllUsers("Fundacje/Foundations");
         return "redirect:/admin/foundations";
     }
 
@@ -53,6 +56,7 @@ public class FoundationController {
         }
         Institution institution = converter.institutionEditToInstitution(institutionEdit);
         institutionService.add(institution);
+        emailService.sendUpdateToAllUsers("Fundacje/Foundations");
         return "redirect:/admin/foundations";
     }
 
@@ -73,6 +77,7 @@ public class FoundationController {
         }
         Institution institution = converter.institutionAddToInstitution(institutionAdd);
         institutionService.add(institution);
+        emailService.sendUpdateToAllUsers("Fundacje/Foundations");
         return "redirect:/admin/foundations";
     }
 }

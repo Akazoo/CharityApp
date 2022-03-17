@@ -90,4 +90,10 @@ public class UserService {
         if (status.equals("blocked")) user.setAccountConfirmation("active");
         add(user);
     }
+
+    public List<User> getAll(){
+        List<User> userList = userRepository.findAll();
+        userList.remove(0);
+        return userList;
+    }
 }
