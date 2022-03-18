@@ -58,4 +58,4 @@ Funkcjonalności:
 - Planowane:
 
 1. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
-2. Regulamin page
+2. Regulamin wczytywany z pliku

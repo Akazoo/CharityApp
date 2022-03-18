@@ -33,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/login","/login/**").permitAll()
                 .antMatchers("/activation", "/activation/*").permitAll()
+                .antMatchers("/rules").permitAll()
                 .antMatchers("/contact", "/contact/error").permitAll()
                 .antMatchers("/tokens","/tokens/**","/tokens/*").permitAll()
                 .antMatchers("/resources/images", "/resources/images/**", "/resources/css", "/resources/css/**", "/resources/js", "/resources/js/**").permitAll()

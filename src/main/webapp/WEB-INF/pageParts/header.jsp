@@ -60,6 +60,7 @@
                 <li><a href="/donation/donate" class="btn btn--without-border"><spring:message code="header.donate"/></a></li>
                 </sec:authorize>
                 <li><a href="#contact" class="btn btn--without-border"><spring:message code="header.contact"/></a></li>
+                <li><a href="/rules" class="btn btn--without-border"><spring:message code="header.rules"/></a></li>
             </ul>
         </nav>
     </div>
