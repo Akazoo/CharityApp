@@ -18,18 +18,29 @@ import java.util.List;
 public class Helpers {
 
     @Value("${emails.files.infix}")
-    private String infix;
+    private String EMAIL_INFIX;
+    @Value("${rules.files.infix}")
+    private String RULES_INFIX;
     @Value("${emails.files.path}")
-    private String PATH;
+    private String EMAIL_PATH;
+    @Value("${rules.files.path}")
+    private String RULES_PATH;
 
     public String getCurrentLanguage() {
         String lang = LocaleContextHolder.getLocale().toString();
-        if(lang.indexOf('_') != -1) return lang.substring(0, lang.indexOf('_'));
+        if (lang.indexOf('_') != -1) return lang.substring(0, lang.indexOf('_'));
         return lang;
     }
 
+    private Path getFilePath(String content) {
+        String lang = getCurrentLanguage();
+        if (content.equals("RULES")) return Paths.get(RULES_PATH + RULES_INFIX + lang);
+        ;
+        return Paths.get(EMAIL_PATH + EMAIL_INFIX + lang);
+    }
+
     public List<String> getMailContent(String emailCategory) {
-        Path contentPath = getFilePath();
+        Path contentPath = getFilePath("EMAIL");
         String emailTitle = "[" + emailCategory + "]";
         List<String> emailContent = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(contentPath)) {
@@ -48,8 +59,26 @@ public class Helpers {
         return emailContent;
     }
 
-    private Path getFilePath() {
-        String lang = getCurrentLanguage();
-        return Paths.get(PATH + infix + lang);
+    public List<String> geRulesContent() {
+        Path contentPath = getFilePath("RULES");
+        List<String> rulesContent = new ArrayList<>();
+        try (BufferedReader reader = Files.newBufferedReader(contentPath)) {
+            String line;
+            StringBuilder rule = new StringBuilder();
+
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("-")) {
+                    if (rule.length() != 0) rulesContent.add(rule.toString());
+                    rule = new StringBuilder();
+                    rule.append(line.substring(1));
+                }
+                rule.append(line);
+            }
+            if (rule.length() != 0) rulesContent.add(rule.toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return rulesContent;
     }
 }
