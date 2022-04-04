@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.akazoo.CharityApp.domain.helpers.Converter;
 import pl.akazoo.CharityApp.domain.dto.InstitutionAdd;
 import pl.akazoo.CharityApp.domain.dto.InstitutionEdit;
@@ -37,9 +34,10 @@ public class FoundationController {
     }
 
     @GetMapping("/edit/{id:\\d+}")
-    public String editFoundation(@PathVariable Long id, Model model) {
+    public String editFoundation(@PathVariable Long id, Model model, @RequestHeader("Referer") String referer) {
         Institution institution = institutionService.getById(id);
         model.addAttribute("institutionEdit", converter.institutionToInstitutionEdit(institution));
+        model.addAttribute("back", referer);
         return "foundations/edit";
     }
 
@@ -61,8 +59,9 @@ public class FoundationController {
     }
 
     @GetMapping("/add")
-    public String addFoundation(Model model) {
+    public String addFoundation(Model model, @RequestHeader("Referer") String referer) {
         model.addAttribute("institutionAdd", new InstitutionAdd());
+        model.addAttribute("back", referer);
         return "foundations/add";
     }
 

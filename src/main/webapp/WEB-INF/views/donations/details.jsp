@@ -60,7 +60,7 @@
         </table>
     </div>
     <div class="form-group--buttons " style="margin-left: 300px">
-        <a href="${back}" class="btn btn--without-border">Wróć</a>
+        <a href="${back}" class="btn btn--without-border"><spring:message code="general.back"/></a>
     </div>
 </header>
 <footer>

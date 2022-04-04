@@ -39,7 +39,8 @@
         </table>
         <div class="form-group--buttons edit-start" id="pass">
             <div class="form-group--buttons edit-end">
-                <button class="btn" id="editEnd" type="submit"><spring:message code="general.edit.end"/></button>
+                <a href="${back}" class="btn btn--without-border"><spring:message code="general.back"/></a>
+                <button class="btn" id="editEnd" type="submit" style="margin-left: 150px"><spring:message code="general.edit.end"/></button>
             </div>
         </div>
     </form:form>

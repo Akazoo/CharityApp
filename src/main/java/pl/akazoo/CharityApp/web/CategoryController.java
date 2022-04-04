@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.akazoo.CharityApp.domain.helpers.Converter;
 import pl.akazoo.CharityApp.domain.dto.CategoryAdd;
 import pl.akazoo.CharityApp.domain.dto.CategoryEdit;
@@ -37,9 +34,10 @@ public class CategoryController {
     }
 
     @GetMapping("/edit/{id:\\d+}")
-    public String editCategory(@PathVariable Long id, Model model) {
+    public String editCategory(@PathVariable Long id, Model model, @RequestHeader("Referer") String referer) {
         Category category = categoryService.getById(id);
         model.addAttribute("categoryEdit", converter.categoryToCategoryEdit(category));
+        model.addAttribute("back", referer);
         return "categories/edit";
     }
 
@@ -61,8 +59,9 @@ public class CategoryController {
     }
 
     @GetMapping("/add")
-    public String addCategory(Model model) {
+    public String addCategory(Model model, @RequestHeader("Referer") String referer) {
         model.addAttribute("categoryAdd", new CategoryAdd());
+        model.addAttribute("back", referer);
         return "categories/add";
     }
 

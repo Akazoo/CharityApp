@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.akazoo.CharityApp.domain.helpers.Converter;
 import pl.akazoo.CharityApp.domain.dto.UserEdit;
 import pl.akazoo.CharityApp.domain.model.User;
@@ -32,10 +29,11 @@ public class UsersController {
     }
 
     @GetMapping("/edit/{id:\\d+}")
-    public String editUser(@PathVariable Long id, Model model) {
+    public String editUser(@PathVariable Long id, Model model, @RequestHeader("Referer") String referer) {
         User user = userService.getById(id);
         model.addAttribute("userToEdit", user);
         model.addAttribute("userEdit", new UserEdit());
+        model.addAttribute("back", referer);
         return "/users/admin/editUser";
     }
 
