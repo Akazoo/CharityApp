@@ -11,16 +11,16 @@
 <header class="header--form-page">
     <%@include file="/WEB-INF/pageParts/header.jsp" %>
     <div class="slogan container container--90">
-        <h2 class="account-header">Szczegóły donacji o id ${donation.id}</h2>
+        <h2 class="account-header"><spring:message code="donation.details"/> ${donation.id}</h2>
     </div>
-    <div class="one-object tablep top40" style="overflow: auto">
+    <div class="one-object tablep top40 overflow-auto">
         <table>
             <tr>
-                <td>Ilość worków</td>
+                <td><spring:message code="donation.bags.number"/></td>
                 <td><input value="${donation.quantity}" disabled></td>
             </tr>
             <tr>
-                <td>Kategorie</td>
+                <td><spring:message code="admin.categories"/></td>
                 <td>
                     <c:forEach items="${donation.categories}" var="category">
                         <textarea rows="2" cols="19" disabled>${category.name}</textarea><br/><br/>
@@ -28,44 +28,44 @@
                 </td>
             </tr>
             <tr>
-                <td>Instytucja</td>
+                <td><spring:message code="donation.foundation"/></td>
                 <td><input value="${donation.institution.name}" disabled></td>
             </tr>
             <tr>
-                <td>Adres</td>
+                <td><spring:message code="donation.address"/></td>
                 <td><input value="${donation.street}" disabled><br/><br/>
                     <input value="${donation.city}" disabled><br/><br/>
                     <input value="${donation.zipCode}" disabled></td>
             </tr>
             <tr>
-                <td>Data odbioru</td>
+                <td><spring:message code="form.step.four.dateTime"/></td>
                 <td><input value="${donation.pickUpDate}" disabled><br/><br/>
                     <input value="${donation.pickUpTime}" disabled></td>
             </tr>
             <tr>
-                <td>Komentarz</td>
+                <td><spring:message code="donation.comment"/></td>
                 <td><textarea rows="3" cols="19>" disabled>${donation.pickUpComment}</textarea>
                 </td>
             </tr>
             <tr>
-                <td>Numer telefonu</td>
+                <td><spring:message code="form.step.four.phone"/></td>
                 <td><input value="${donation.phoneNumber}" disabled></td>
             </tr>
             <tr>
-                <td>Status/Data zmiany statusu</td>
+                <td><spring:message code="donations.status"/></td>
                 <td><input value="${donation.status}" disabled><br/><br/>
                     <input value="${donation.statusChangedDate}" disabled></td>
             </tr>
 
         </table>
     </div>
-    <div class="form-group--buttons " style="margin-left: 300px">
+    <div class="form-group--buttons marginleft300">
         <a href="${back}" class="btn btn--without-border"><spring:message code="general.back"/></a>
     </div>
 </header>
 <footer>
     <%@ include file="/WEB-INF/pageParts/footer.jsp" %>
 </footer>
-<%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
+    <%@ include file="/WEB-INF/pageParts/scripts.jsp" %>
 </body>
 </html>
