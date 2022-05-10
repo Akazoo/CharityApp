@@ -112,6 +112,7 @@ public class Converter {
         User user = userService.getById(userEdit.getId());
         user.setLastName(userEdit.getLastName());
         user.setFirstName(userEdit.getFirstName());
+        user.setNotes(userEdit.getNotes());
         return user;
     }
 }

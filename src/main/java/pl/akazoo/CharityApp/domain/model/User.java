@@ -37,6 +37,8 @@ public class User {
     private LocalDate tokenExpireDate;
     @Column
     private String resetPasswordToken;
+    @Column(length = 100)
+    private String notes;
 
     @PrePersist
     public void setCreationDate(){

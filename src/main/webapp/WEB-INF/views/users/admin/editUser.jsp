@@ -36,6 +36,12 @@
                     <form:errors path="lastName" element="p"/>
                 </td>
             </tr>
+            <tr>
+                <td><spring:message code="profile.notes"/></td>
+                <td><form:input path="notes" value="${userToEdit.notes}"/>
+                    <form:errors path="notes" element="p"/>
+                </td>
+            </tr>
         </table>
         <div class="form-group--buttons edit-start" id="pass">
             <div class="form-group--buttons edit-end">

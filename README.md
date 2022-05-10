@@ -27,6 +27,7 @@ Features:
 - In the nearest future:
 
 1. Email messages sent to users regarding changes of their accounts or application updates.
+2. Refactor/Tests
 
 Polish transcription :
 
@@ -58,3 +59,5 @@ Funkcjonalności:
 - Planowane:
 
 1. Wiadomości mail wysyłane do użytkowników dotyczące zmian ich kont lub aktualizacji aplikacji.
+2. Refactor/Testy
+ Nie pokazuje comentarza ale zapisuje
