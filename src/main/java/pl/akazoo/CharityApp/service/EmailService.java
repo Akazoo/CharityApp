@@ -103,6 +103,11 @@ public class EmailService {
                 mailContent.get(3) + "\n";
     }
 
+    public void sendUpdateToAllUsers(String sectionChanged){
+        List<User> userList = userService.getAll();
+        userList.forEach(user -> sendWebsiteUpdateMessage(user,sectionChanged));
+    }
+
     public void sendUserUpdateMessage(User user, UserUpdate userUpdate) {
         SimpleMailMessage message = new SimpleMailMessage();
         List<String> mailContent = helpers.getMailContent("changesInAccount");
@@ -118,10 +123,5 @@ public class EmailService {
                 mailContent.get(2) + " " + userUpdate.getReason() + "\n" +
                 mailContent.get(3) + "\n" +
                 mailContent.get(4) + "\n";
-    }
-
-    public void sendUpdateToAllUsers(String sectionChanged){
-        List<User> userList = userService.getAll();
-        userList.forEach(user -> sendWebsiteUpdateMessage(user,sectionChanged));
     }
 }
